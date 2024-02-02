@@ -2,7 +2,7 @@
 	import { Archive, FileText } from 'radix-icons-svelte';
 	import { onMount } from 'svelte';
 	import { fileHandlerStore, markdownStore, selectedNoteStore } from '$lib/stores';
-	import { Directory } from '$lib';
+	import { DirectoryManager } from '$lib';
 
 	export let show: boolean;
 
@@ -10,16 +10,16 @@
 
 	let fileHandler;
 
-	let directory: Directory;
+	let directory: DirectoryManager;
 
 	fileHandlerStore.subscribe((value) => {
 		fileHandler = value;
-		directory = new Directory(fileHandler);
+		directory = new DirectoryManager(fileHandler);
 	});
 	onMount(async () => {
 		try {
 			if (directory) {
-				notes = await directory.getNotes();
+				notes = await directory.fetchAllNotes();
 				console.log('notes', notes);
 			}
 		} catch (error) {
@@ -29,8 +29,7 @@
 
 	const selectNote = async (noteName: string) => {
 		selectedNoteStore.set(noteName);
-		console.log(await directory.getFileContent(noteName));
-		const markdownContent = await directory.getFileContent(noteName);
+		const markdownContent = await directory.retrieveMarkdownFileContents(noteName);
 		markdownStore.set(markdownContent);
 	};
 </script>

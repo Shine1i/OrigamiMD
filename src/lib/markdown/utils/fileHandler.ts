@@ -10,90 +10,96 @@ import {
 } from '@tauri-apps/api/fs';
 import { path } from '@tauri-apps/api';
 
-export class MarkdownFileHandler {
-	notesDir: string;
-	private notes: string[] = [];
-	constructor(notesDir: string) {
-		this.notesDir = notesDir;
+export class MarkdownFileManager {
+	notesDirectory: string;
+	private collectedNotes: string[] = [];
+	constructor(notesDirectory: string) {
+		this.notesDirectory = notesDirectory;
 	}
-
-	async ensureNotesDirectoryExists() {
-		const isDirExists = await exists(this.notesDir, { dir: BaseDirectory.Document });
-		if (!isDirExists) {
-			await createDir(this.notesDir, { dir: BaseDirectory.Document });
+	async ensureNoteDirectoryExists() {
+		const directoryExists = await exists(this.notesDirectory, { dir: BaseDirectory.Document });
+		if (!directoryExists) {
+			await createDir(this.notesDirectory, { dir: BaseDirectory.Document });
 		}
 	}
-
-	async createNote(noteName: string, content: string = ''): Promise<void> {
-		await this.ensureNotesDirectoryExists();
-		if (!(await exists(`${this.notesDir}/${noteName}.md`, { dir: BaseDirectory.Document }))) {
-			await writeFile(`${this.notesDir}/${noteName}.md`, content, { dir: BaseDirectory.Document });
+	async addNewNote(noteTitle: string, textContent: string = ''): Promise<void> {
+		await this.ensureNoteDirectoryExists();
+		if (
+			!(await exists(`${this.notesDirectory}/${noteTitle}.md`, { dir: BaseDirectory.Document }))
+		) {
+			await writeFile(`${this.notesDirectory}/${noteTitle}.md`, textContent, {
+				dir: BaseDirectory.Document
+			});
 		} else {
 			throw new Error('Note already exists');
 		}
 	}
-
-	async readNote(noteName: string): Promise<string> {
-		await this.ensureNotesDirectoryExists();
-		if (await exists(`${this.notesDir}/${noteName}`, { dir: BaseDirectory.Document })) {
-			return await readTextFile(`${this.notesDir}/${noteName}`, { dir: BaseDirectory.Document });
-		} else {
-			throw new Error('Note does not exist');
-		}
-	}
-
-	async appendToNote(noteName: string, content: string): Promise<void> {
-		await this.ensureNotesDirectoryExists();
-		if (await exists(`${this.notesDir}/${noteName}.md`, { dir: BaseDirectory.Document })) {
-			await writeFile(`${this.notesDir}/${noteName}.md`, content, {
-				dir: BaseDirectory.Document,
-				append: true
+	async retrieveNote(noteTitle: string): Promise<string> {
+		await this.ensureNoteDirectoryExists();
+		if (await exists(`${this.notesDirectory}/${noteTitle}`, { dir: BaseDirectory.Document })) {
+			return await readTextFile(`${this.notesDirectory}/${noteTitle}`, {
+				dir: BaseDirectory.Document
 			});
 		} else {
 			throw new Error('Note does not exist');
 		}
 	}
-
-	async deleteNote(noteName: string): Promise<void> {
-		await this.ensureNotesDirectoryExists();
-		if (await exists(`${this.notesDir}/${noteName}.md`, { dir: BaseDirectory.Document })) {
-			await removeFile(`${this.notesDir}/${noteName}.md`, { dir: BaseDirectory.Document });
+	async updateNoteContent(noteTitle: string, content: string): Promise<void> {
+		await this.ensureNoteDirectoryExists();
+		if (await exists(`${this.notesDirectory}/${noteTitle}`, { dir: BaseDirectory.Document })) {
+			await writeFile(`${this.notesDirectory}/${noteTitle}`, content, {
+				dir: BaseDirectory.Document,
+				append: false
+			});
 		} else {
 			throw new Error('Note does not exist');
 		}
 	}
-	async readDirectory(): Promise<FileEntry[]> {
-		await this.ensureNotesDirectoryExists();
-
-		return await readDir(this.notesDir, { dir: BaseDirectory.Document, recursive: true });
+	async removeNote(noteTitle: string): Promise<void> {
+		await this.ensureNoteDirectoryExists();
+		if (await exists(`${this.notesDirectory}/${noteTitle}.md`, { dir: BaseDirectory.Document })) {
+			await removeFile(`${this.notesDirectory}/${noteTitle}.md`, { dir: BaseDirectory.Document });
+		} else {
+			throw new Error('Note does not exist');
+		}
 	}
-
-	async processEntries(entries: FileEntry[]) {
-		for (const entry of entries) {
-			if (entry.children) {
-				await this.processEntries(entry.children);
-			} else if (entry.path.endsWith('.md')) {
-				this.notes.push(await path.basename(entry.path));
+	async listDirectory(): Promise<FileEntry[]> {
+		await this.ensureNoteDirectoryExists();
+		return await readDir(this.notesDirectory, { dir: BaseDirectory.Document, recursive: true });
+	}
+	async buildNoteList(dirContents: FileEntry[]) {
+		for (const file of dirContents) {
+			if (file.children) {
+				await this.buildNoteList(file.children);
+			} else if (file.path.endsWith('.md')) {
+				this.collectedNotes.push(await path.basename(file.path));
 			}
 		}
 	}
-
-	async getNotes() {
-		const entries = await this.readDirectory();
-		await this.processEntries(entries);
-		return this.notes;
+	async fetchAllNotes() {
+		const directoryContents = await this.listDirectory();
+		await this.buildNoteList(directoryContents);
+		return this.collectedNotes;
 	}
 }
-export class Directory {
-	markdownFileHandler: MarkdownFileHandler;
-	constructor(markdownFileHandler: MarkdownFileHandler) {
-		this.markdownFileHandler = markdownFileHandler;
+export class DirectoryManager {
+	markdownFileManager: MarkdownFileManager;
+	constructor(markdownFileManager: MarkdownFileManager) {
+		this.markdownFileManager = markdownFileManager;
 	}
-
-	async getNotes(): Promise<string[]> {
-		return this.markdownFileHandler.getNotes();
+	async fetchAllNotes(): Promise<string[]> {
+		return this.markdownFileManager.fetchAllNotes();
 	}
-	async getFileContent(noteName: string): Promise<string> {
-		return this.markdownFileHandler.readNote(noteName);
+	async retrieveMarkdownFileContents(noteTitle: string): Promise<string> {
+		return this.markdownFileManager.retrieveNote(noteTitle);
+	}
+	async addNewNote(noteTitle: string, textContent: string = ''): Promise<void> {
+		return this.markdownFileManager.addNewNote(noteTitle, textContent);
+	}
+	async updateNoteContent(noteTitle: string, additionalContent: string): Promise<void> {
+		return this.markdownFileManager.updateNoteContent(noteTitle, additionalContent);
+	}
+	async removeNote(noteTitle: string): Promise<void> {
+		return this.markdownFileManager.removeNote(noteTitle);
 	}
 }
