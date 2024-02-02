@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
 	import '../app.pcss';
 	import * as Menubar from '$lib/components/ui/menubar';
+	import '@milkdown/theme-nord/style.css';
+	import Sidebar from '$lib/Layout/Sidebar.svelte';
 	let bookmarks = false;
 	let fullUrls = true;
 	const profileRadioValue = 'benoit';
@@ -71,43 +73,14 @@
 	</Menubar.Menu>
 </Menubar.Root>
 
--->
-<aside
-	class:!-translate-x-full={show}
-	class="hidden translate-x-0 transform border-r pt-6 transition duration-300 ease-in-out lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
->
-	<div
-		class:!opacity-0={show}
-		class="fixed inset-0 bg-primary/10 opacity-100 transition-opacity duration-300 ease-linear"
-	></div>
-	<div class="flex grow flex-col gap-y-5 overflow-y-auto border-r">
-		<div class="flex h-16 shrink-0 items-center">
-			<img
-				class="h-8 w-auto"
-				src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-				alt="Your Company"
-			/>
-		</div>
-		<nav class="flex flex-1 flex-col">
-			<ul role="list" class="flex w-full flex-1 flex-col gap-y-7">
-				<li class="mt-auto flex w-full items-center justify-center text-center">
-					<button
-						class="group w-full text-sm font-semibold leading-5 text-gray-600 hover:bg-gray-500/20"
-					>
-						Open Folder...
-					</button>
-				</li>
-			</ul>
-		</nav>
-	</div>
-</aside>
+<Sidebar {show} />
 
-<div class="overflow-x-hidden">
+<div class="h-full overflow-x-hidden">
 	<main
 		class:expanded={show}
-		class=" w-full translate-x-0 transform py-10 pb-16 pl-72 transition duration-300 ease-in-out"
+		class=" h-full w-full translate-x-0 transform pl-72 pt-10 transition duration-300 ease-in-out"
 	>
-		<div class="w-full px-4 sm:px-6 lg:px-8">
+		<div class="h-full w-full px-4 sm:px-6 lg:px-8">
 			<slot />
 		</div>
 	</main>
@@ -139,8 +112,4 @@
 </div>
 
 <style>
-	.expanded {
-		transform: translateX(-288px);
-		width: calc(100% + 288px);
-	}
 </style>
