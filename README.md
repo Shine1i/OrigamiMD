@@ -1,38 +1,22 @@
-# create-svelte
+# WYSIWYG Markdown App with Svelte, Tauri, and Milkdown
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+It's a work-in-progress project, designed to offer a plugin-driven WYSIWYG (What You See Is What You Get) Markdown editing experience inspired by Typora. This application is powered by [Tauri](https://tauri.studio), a framework for building lightweight, secure applications with web technologies, [Svelte](https://svelte.dev) for building user interfaces, and the [Milkdown](https://milkdown.dev) framework for building WYSIWYG Markdown editors.
 
-## Creating a project
+### Prerequisites
 
-If you're seeing this, you've probably already done this step. Congrats!
+Before getting started, it is essential to install the necessary prerequisites as outlined in [Tauri's official guide](https://tauri.app/v1/guides/getting-started/prerequisites).
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+### Installation
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+To set up the project locally, follow these steps:
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. Clone this repository:
+```git clone https://github.com/Shine1i/OrigamiMD```
+2. Navigate into the repository:
+```cd OrigamiMD```
+3. Install the dependencies using your package manager (preferbly bun havent tested others)
+```bun install```
+4. Start the development server:
+```bun run tauri dev```
+   The project is in the early stages, and contributions are highly welcomed. Feel free to fork, make changes and create a pull request. Happy coding!
+5. 
