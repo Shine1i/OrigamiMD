@@ -11,18 +11,14 @@
 	import { gfm } from '@milkdown/preset-gfm';
 	import { fileHandlerStore, markdownStore, selectedNoteStore } from '$lib/stores';
 	import { listener, listenerCtx } from '@milkdown/plugin-listener';
-	import { DirectoryManager } from '$lib/markdown/utils/fileHandler';
+	import { NoteManager } from '$lib';
+	import { replaceAll } from '@milkdown/utils';
 	export let defaultValue: string;
 	let editorInstance = Editor.make();
 	let dom: HTMLElement;
-	let fileHandler;
-	let directory: DirectoryManager;
-	fileHandlerStore.subscribe((value) => {
-		fileHandler = value;
-		directory = new DirectoryManager(fileHandler);
-	});
+
 	let typingTimeout: any; // debounce
-	let DEBOUNCE_DELAY = 1000;
+	const DEBOUNCE_DELAY = 1000;
 	function createEditor(markdown: string) {
 		editorInstance
 			.config((ctx) => {
@@ -34,10 +30,9 @@
 					}
 				});
 				ctx.get(listenerCtx).markdownUpdated(async (ctx, markdown, prevMarkdown) => {
-					// debounce
 					clearTimeout(typingTimeout);
 					typingTimeout = setTimeout(async () => {
-						await directory.updateNoteContent($selectedNoteStore, markdown);
+						await $fileHandlerStore.updateNoteContent($selectedNoteStore, markdown);
 						console.log('Markdown saved to file');
 					}, DEBOUNCE_DELAY);
 				});
@@ -56,12 +51,16 @@
 		dom = element;
 		createEditor(defaultValue);
 	}
-
+	class test {
+		public static editor(element: HTMLElement) {
+			dom = element;
+			createEditor(defaultValue);
+		}
+	}
 	onMount(() => {
 		if (editorInstance) {
 			const unsubscribe = markdownStore.subscribe(async (markdown) => {
-				await editorInstance.destroy();
-				createEditor(markdown);
+				editorInstance.action(replaceAll(markdown));
 				console.log('Editor updated with new markdown content');
 			});
 
@@ -70,7 +69,7 @@
 	});
 </script>
 
-<article use:editor class="border" />
+<article use:test.editor class="border" />
 
 <style>
 </style>

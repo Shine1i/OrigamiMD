@@ -10,96 +10,110 @@ import {
 } from '@tauri-apps/api/fs';
 import { path } from '@tauri-apps/api';
 
-export class MarkdownFileManager {
+interface FileOperations {
+	addNewFile(filePath: string, content: string): Promise<void>;
+	readFile(filePath: string): Promise<string>;
+	updateFile(filePath: string, content: string): Promise<void>;
+	removeFile(filePath: string): Promise<void>;
+	listDirectory(directory: string): Promise<FileEntry[]>;
+}
+
+export class TauriFileOperations implements FileOperations {
+	async addNewFile(filePath: string, content: string): Promise<void> {
+		await writeFile(filePath, content, { dir: BaseDirectory.Document });
+	}
+
+	async readFile(filePath: string): Promise<string> {
+		return await readTextFile(filePath, { dir: BaseDirectory.Document });
+	}
+
+	async updateFile(filePath: string, content: string): Promise<void> {
+		await writeFile(filePath, content, { dir: BaseDirectory.Document, append: false });
+	}
+
+	async removeFile(filePath: string): Promise<void> {
+		await removeFile(filePath, { dir: BaseDirectory.Document });
+	}
+
+	async listDirectory(directory: string): Promise<FileEntry[]> {
+		return await readDir(directory, { dir: BaseDirectory.Document, recursive: true });
+	}
+}
+
+export class NoteManager {
+	fileOperations: FileOperations;
 	notesDirectory: string;
 	private collectedNotes: string[] = [];
-	constructor(notesDirectory: string) {
+
+	constructor(notesDirectory: string, fileOperations: FileOperations) {
 		this.notesDirectory = notesDirectory;
+		this.fileOperations = fileOperations;
 	}
-	async ensureNoteDirectoryExists() {
+
+	async ensureNoteDirectoryExists(): Promise<void> {
 		const directoryExists = await exists(this.notesDirectory, { dir: BaseDirectory.Document });
 		if (!directoryExists) {
 			await createDir(this.notesDirectory, { dir: BaseDirectory.Document });
 		}
 	}
+
 	async addNewNote(noteTitle: string, textContent: string = ''): Promise<void> {
 		await this.ensureNoteDirectoryExists();
-		if (
-			!(await exists(`${this.notesDirectory}/${noteTitle}.md`, { dir: BaseDirectory.Document }))
-		) {
-			await writeFile(`${this.notesDirectory}/${noteTitle}.md`, textContent, {
-				dir: BaseDirectory.Document
-			});
+		const filePath = `${this.notesDirectory}/${noteTitle}`;
+
+		if (!(await exists(filePath, { dir: BaseDirectory.Document }))) {
+			await this.fileOperations.addNewFile(filePath, textContent);
 		} else {
 			throw new Error('Note already exists');
 		}
 	}
+
 	async retrieveNote(noteTitle: string): Promise<string> {
 		await this.ensureNoteDirectoryExists();
-		if (await exists(`${this.notesDirectory}/${noteTitle}`, { dir: BaseDirectory.Document })) {
-			return await readTextFile(`${this.notesDirectory}/${noteTitle}`, {
-				dir: BaseDirectory.Document
-			});
+		const filePath = `${this.notesDirectory}/${noteTitle}`;
+
+		if (await exists(filePath, { dir: BaseDirectory.Document })) {
+			return await this.fileOperations.readFile(filePath);
 		} else {
 			throw new Error('Note does not exist');
 		}
 	}
+
 	async updateNoteContent(noteTitle: string, content: string): Promise<void> {
 		await this.ensureNoteDirectoryExists();
-		if (await exists(`${this.notesDirectory}/${noteTitle}`, { dir: BaseDirectory.Document })) {
-			await writeFile(`${this.notesDirectory}/${noteTitle}`, content, {
-				dir: BaseDirectory.Document,
-				append: false
-			});
+		const filePath = `${this.notesDirectory}/${noteTitle}`;
+
+		if (await exists(filePath, { dir: BaseDirectory.Document })) {
+			await this.fileOperations.updateFile(filePath, content);
 		} else {
 			throw new Error('Note does not exist');
 		}
 	}
+
 	async removeNote(noteTitle: string): Promise<void> {
 		await this.ensureNoteDirectoryExists();
-		if (await exists(`${this.notesDirectory}/${noteTitle}.md`, { dir: BaseDirectory.Document })) {
-			await removeFile(`${this.notesDirectory}/${noteTitle}.md`, { dir: BaseDirectory.Document });
+		const filePath = `${this.notesDirectory}/${noteTitle}`;
+
+		if (await exists(filePath, { dir: BaseDirectory.Document })) {
+			await this.fileOperations.removeFile(filePath);
 		} else {
 			throw new Error('Note does not exist');
 		}
 	}
-	async listDirectory(): Promise<FileEntry[]> {
-		await this.ensureNoteDirectoryExists();
-		return await readDir(this.notesDirectory, { dir: BaseDirectory.Document, recursive: true });
-	}
-	async buildNoteList(dirContents: FileEntry[]) {
-		for (const file of dirContents) {
-			if (file.children) {
-				await this.buildNoteList(file.children);
-			} else if (file.path.endsWith('.md')) {
-				this.collectedNotes.push(await path.basename(file.path));
-			}
-		}
-	}
+
 	async fetchAllNotes() {
-		const directoryContents = await this.listDirectory();
+		const directoryContents = await this.fileOperations.listDirectory(this.notesDirectory);
 		await this.buildNoteList(directoryContents);
 		return this.collectedNotes;
 	}
-}
-export class DirectoryManager {
-	markdownFileManager: MarkdownFileManager;
-	constructor(markdownFileManager: MarkdownFileManager) {
-		this.markdownFileManager = markdownFileManager;
-	}
-	async fetchAllNotes(): Promise<string[]> {
-		return this.markdownFileManager.fetchAllNotes();
-	}
-	async retrieveMarkdownFileContents(noteTitle: string): Promise<string> {
-		return this.markdownFileManager.retrieveNote(noteTitle);
-	}
-	async addNewNote(noteTitle: string, textContent: string = ''): Promise<void> {
-		return this.markdownFileManager.addNewNote(noteTitle, textContent);
-	}
-	async updateNoteContent(noteTitle: string, additionalContent: string): Promise<void> {
-		return this.markdownFileManager.updateNoteContent(noteTitle, additionalContent);
-	}
-	async removeNote(noteTitle: string): Promise<void> {
-		return this.markdownFileManager.removeNote(noteTitle);
+
+	private async buildNoteList(dirContents: FileEntry[]) {
+		for (const file of dirContents) {
+			if (file.children) {
+				await this.buildNoteList(file.children);
+			} else if (file.path.endsWith('')) {
+				this.collectedNotes.push(await path.basename(file.path));
+			}
+		}
 	}
 }

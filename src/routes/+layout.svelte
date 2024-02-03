@@ -80,7 +80,7 @@
 		class:expanded={show}
 		class=" h-full w-full translate-x-0 transform pl-72 pt-10 transition duration-300 ease-in-out"
 	>
-		<div class="h-full w-full px-4 sm:px-6 lg:px-8">
+		<div class="h-full w-full overflow-hidden px-4 sm:px-6 lg:px-8">
 			<slot />
 		</div>
 	</main>

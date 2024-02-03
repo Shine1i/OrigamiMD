@@ -2,34 +2,25 @@
 	import { Archive, FileText } from 'radix-icons-svelte';
 	import { onMount } from 'svelte';
 	import { fileHandlerStore, markdownStore, selectedNoteStore } from '$lib/stores';
-	import { DirectoryManager } from '$lib';
 
 	export let show: boolean;
 
 	let notes: string[] = [];
 
-	let fileHandler;
-
-	let directory: DirectoryManager;
-
-	fileHandlerStore.subscribe((value) => {
-		fileHandler = value;
-		directory = new DirectoryManager(fileHandler);
-	});
 	onMount(async () => {
 		try {
-			if (directory) {
-				notes = await directory.fetchAllNotes();
+			if ($fileHandlerStore) {
+				notes = await $fileHandlerStore.fetchAllNotes();
 				console.log('notes', notes);
 			}
 		} catch (error) {
-			console.error('Error reading notes directory: ', error);
+			console.error('Error reading notes $fileHandlerStore: ', error);
 		}
 	});
 
 	const selectNote = async (noteName: string) => {
 		selectedNoteStore.set(noteName);
-		const markdownContent = await directory.retrieveMarkdownFileContents(noteName);
+		const markdownContent = await $fileHandlerStore.retrieveNote(noteName);
 		markdownStore.set(markdownContent);
 	};
 </script>
