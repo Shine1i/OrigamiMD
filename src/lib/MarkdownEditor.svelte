@@ -15,7 +15,7 @@
 	import { Ctx } from '@milkdown/ctx';
 	let editorInstancePromise: any;
 	let editorInstance = Editor.make();
-
+	import { cursor } from '@milkdown/plugin-cursor';
 	let dom: HTMLElement;
 	function createEditor(node: HTMLElement) {
 		// Extract the markdownUpdate handler
@@ -33,12 +33,13 @@
 				});
 				ctx.get(listenerCtx).markdownUpdated(markdownUpdateCallback);
 			})
-			.use(gfm)
+
 			.config(nord)
 			.use(clipboard)
 			.use(commonmark)
 			.use(listener)
 			.use(prism)
+			.use(cursor)
 			.create();
 
 		editorInstancePromise.then((editorInstance: Editor) => {
@@ -67,7 +68,7 @@
 	});
 </script>
 
-<article use:createEditor class="border" />
+<article use:createEditor class="" />
 
 <style>
 </style>

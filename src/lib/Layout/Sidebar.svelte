@@ -47,7 +47,6 @@
 			console.error('Error adding note: ', error);
 		}
 	};
-	$: console.log(notes);
 </script>
 
 <aside

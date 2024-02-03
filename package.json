@@ -41,6 +41,7 @@
     "@milkdown/core": "^7.3.3",
     "@milkdown/ctx": "^7.3.3",
     "@milkdown/plugin-clipboard": "^7.3.3",
+    "@milkdown/plugin-cursor": "^7.3.3",
     "@milkdown/plugin-history": "^7.3.3",
     "@milkdown/plugin-listener": "^7.3.3",
     "@milkdown/plugin-prism": "^7.3.3",
