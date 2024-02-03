@@ -52,9 +52,9 @@
 	}
 	let unsubscribe;
 	onMount(() => {
-		editorInstancePromise.then((_) => {
+		editorInstancePromise.then((editor) => {
 			unsubscribe = editorStore.subscribe((state) => {
-				state?.editorInstance?.action(replaceAll(state.noteContent));
+				state.editorInstance?.action(replaceAll(state.noteContent));
 				console.log('Editor updated with new markdown');
 			});
 		});

@@ -59,7 +59,7 @@ export class NoteManager {
 
 	async addNewNote(noteTitle: string, textContent: string = ''): Promise<void> {
 		await this.ensureNoteDirectoryExists();
-		const filePath = `${this.notesDirectory}/${noteTitle}`;
+		const filePath = `${this.notesDirectory}/${noteTitle}.md`;
 
 		if (!(await exists(filePath, { dir: BaseDirectory.Document }))) {
 			await this.fileOperations.addNewFile(filePath, textContent);

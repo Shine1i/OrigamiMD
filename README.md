@@ -18,5 +18,5 @@ To set up the project locally, follow these steps:
 ```bun install```
 4. Start the development server:
 ```bun run tauri dev```
-   The project is in the early stages, and contributions are highly welcomed. Feel free to fork, make changes and create a pull request. Happy coding!
-5. 
+
+The project is in the early stages, and contributions are highly welcomed. Feel free to fork, make changes and create a pull request. Happy coding!
