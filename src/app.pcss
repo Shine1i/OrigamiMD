@@ -64,11 +64,11 @@
 }
 
 .editor {
-  @apply h-full shadow shadow-secondary prose  rounded-md  w-full !important ;
-min-height: 650px; /* It will be this height if there is not much content */
-  max-height: 100vh; /* It can grow till screen height */
-min-width: calc(100%);
-  overflow-y: auto; /* If content surpass screen height, it becomes scrollable */
+  @apply h-full shadow outline-none prose prose-white dark:prose-invert  rounded-md w-full !important;
+  min-height: 650px;
+  max-height: 80vh; /* Adjust the maximum height value */
+  min-width: calc(100%);
+  overflow-y: auto; /* Scrolling is enabled when content surpasses max-height */
 }
 .expanded {
   transform: translateX(-288px);

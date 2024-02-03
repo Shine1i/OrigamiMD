@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Archive, FileText } from 'radix-icons-svelte';
+	import { FileText } from 'radix-icons-svelte';
 	import { onMount } from 'svelte';
-	import { fileHandlerStore, markdownStore, selectedNoteStore } from '$lib/stores';
+	import { editorStore, fileHandlerStore } from '$lib/stores';
 
 	export let show: boolean;
 
@@ -19,9 +19,12 @@
 	});
 
 	const selectNote = async (noteName: string) => {
-		selectedNoteStore.set(noteName);
 		const markdownContent = await $fileHandlerStore.retrieveNote(noteName);
-		markdownStore.set(markdownContent);
+		editorStore.update((state) => ({
+			...state,
+			currentNote: noteName,
+			noteContent: markdownContent
+		}));
 	};
 </script>
 

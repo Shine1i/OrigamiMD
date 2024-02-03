@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Refactor Markdown file and directory handling classes&#10;&#10;Renamed MarkdownFileHandler to MarkdownFileManager and Directory to DirectoryManager for clarity. On the markdown editor, implemented plugins including history, clipboard, and markdown syntax, and added functionality for saving changes to the markdown file. Integrated these changes to the sidebar for handling and saving to the correct file.">
+    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Refactor Markdown file handling modules with clearer interfaces&#10;&#10;Introduced FileOperations interface to clearly define file-related functions. Separated Markdown file handling roles into two classes: TauriFileOperations implements the FileOperations and NoteManager handles notes-related actions. This modular approach simplifies the understanding of the file handling system.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.pcss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.pcss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Layout/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Layout/Sidebar.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/MarkdownEditor.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/MarkdownEditor.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/markdown/utils/fileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/markdown/utils/fileHandler.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/stores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stores.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +75,7 @@
     "nodejs_package_manager_path": "npm",
     "npm.tauri.executor": "Run",
     "prettierjs.PrettierConfiguration.Package": "/home/wasim/WebstormProjects/OrigamiMD/node_modules/prettier",
-    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary",
+    "settings.editor.selected.configurable": "actions.on.save",
     "ts.external.directory.path": "/home/wasim/WebstormProjects/OrigamiMD/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -118,7 +120,10 @@
       <workItem from="1706796746494" duration="4761000" />
       <workItem from="1706872512502" duration="9890000" />
       <workItem from="1706956792536" duration="290000" />
-      <workItem from="1706957089697" duration="793000" />
+      <workItem from="1706957089697" duration="3527000" />
+      <workItem from="1706960645129" duration="396000" />
+      <workItem from="1706962822863" duration="3129000" />
+      <workItem from="1706965957347" duration="1271000" />
     </task>
     <task id="LOCAL-00001" summary="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included.">
       <option name="closed" value="true" />
@@ -168,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706881179325</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactor Markdown file handling modules with clearer interfaces&#10;&#10;Introduced FileOperations interface to clearly define file-related functions. Separated Markdown file handling roles into two classes: TauriFileOperations implements the FileOperations and NoteManager handles notes-related actions. This modular approach simplifies the understanding of the file handling system.">
+      <option name="closed" value="true" />
+      <created>1706958111970</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706958111970</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +204,7 @@
     <MESSAGE value="Add interactive menubar and side navigation in layout&#10;&#10;The code improvement primarily adds an interactive menubar with File, Edit, and View menus, along with their respective submenu items in the application layout. Additional code includes side navigation hidden by default and becomes visible on a specific trigger. These changes are aimed to enhance the user interface and provide a streamlined navigation experience." />
     <MESSAGE value="Implement Markdown editor and directory handling functionalities&#10;&#10;Added a Markdown editor and sidebar components to the application layout. The Markdown editor includes presets and plugins for standard markdown syntax, clipboard handling and document view history. The sidebar component fetches and displays note files from a specified directory and allows file selection for editing. Updated Tauri dependencies and configurations accordingly." />
     <MESSAGE value="Refactor Markdown file and directory handling classes&#10;&#10;Renamed MarkdownFileHandler to MarkdownFileManager and Directory to DirectoryManager for clarity. On the markdown editor, implemented plugins including history, clipboard, and markdown syntax, and added functionality for saving changes to the markdown file. Integrated these changes to the sidebar for handling and saving to the correct file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor Markdown file and directory handling classes&#10;&#10;Renamed MarkdownFileHandler to MarkdownFileManager and Directory to DirectoryManager for clarity. On the markdown editor, implemented plugins including history, clipboard, and markdown syntax, and added functionality for saving changes to the markdown file. Integrated these changes to the sidebar for handling and saving to the correct file." />
+    <MESSAGE value="Refactor Markdown file handling modules with clearer interfaces&#10;&#10;Introduced FileOperations interface to clearly define file-related functions. Separated Markdown file handling roles into two classes: TauriFileOperations implements the FileOperations and NoteManager handles notes-related actions. This modular approach simplifies the understanding of the file handling system." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor Markdown file handling modules with clearer interfaces&#10;&#10;Introduced FileOperations interface to clearly define file-related functions. Separated Markdown file handling roles into two classes: TauriFileOperations implements the FileOperations and NoteManager handles notes-related actions. This modular approach simplifies the understanding of the file handling system." />
   </component>
 </project>
