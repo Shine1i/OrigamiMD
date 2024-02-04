@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Improve Menubar and Sidebar UI, add word count in editor store&#10;&#10;The update revamps the Menubar and Sidebar user interface, providing a cleaner and more organized appearance. The Sidebar now includes tabs for easier navigation. Additional feature includes showing total word count from the text editor in the application's main view, offering more information and convenience to the user.">
+    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Add Table of Content functionality to Svelte component&#10;&#10;The commit introduces a Table of Content (ToC) feature to the application. A new Svelte component, Toc.svelte, is created which allows smooth navigation and focus shifting within text. The ToC feature is also added to the Sidebar component for easier access.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.npmrc" beforeDir="false" afterPath="$PROJECT_DIR$/.npmrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/Layout/sidebar/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Layout/sidebar/Sidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/stores.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/stores.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +132,7 @@
       <workItem from="1706965957347" duration="6401000" />
       <workItem from="1706979118365" duration="4243000" />
       <workItem from="1707040077314" duration="11317000" />
-      <workItem from="1707055095411" duration="8770000" />
+      <workItem from="1707055095411" duration="9294000" />
     </task>
     <task id="LOCAL-00001" summary="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included.">
       <option name="closed" value="true" />
@@ -257,7 +254,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707059706361</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Add Table of Content functionality to Svelte component&#10;&#10;The commit introduces a Table of Content (ToC) feature to the application. A new Svelte component, Toc.svelte, is created which allows smooth navigation and focus shifting within text. The ToC feature is also added to the Sidebar component for easier access.">
+      <option name="closed" value="true" />
+      <created>1707064183360</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707064183360</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -295,6 +300,7 @@
     <MESSAGE value="Update Sidebar to include tabs&#10;&#10;Introduced tabs in the Sidebar component of the application to categorize different sections. This involves importing the Tabs component and handling the tab switch with a dedicated `tab` variable. Besides, adjustments were made to existing layout and logic to accommodate these changes." />
     <MESSAGE value="Updated Menubar and Sidebar UI, added word count to editor&#10;&#10;This update carries a complete UI overhaul for Menubar and Sidebar. Menubar features changes in its border style. Sidebar now includes a tab functionality for categorizing different sections. Also, the file counts a total number of words in the text editor and displays it in the application's main interface. Various adjustments were made to support and enhance these changes." />
     <MESSAGE value="Improve Menubar and Sidebar UI, add word count in editor store&#10;&#10;The update revamps the Menubar and Sidebar user interface, providing a cleaner and more organized appearance. The Sidebar now includes tabs for easier navigation. Additional feature includes showing total word count from the text editor in the application's main view, offering more information and convenience to the user." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improve Menubar and Sidebar UI, add word count in editor store&#10;&#10;The update revamps the Menubar and Sidebar user interface, providing a cleaner and more organized appearance. The Sidebar now includes tabs for easier navigation. Additional feature includes showing total word count from the text editor in the application's main view, offering more information and convenience to the user." />
+    <MESSAGE value="Add Table of Content functionality to Svelte component&#10;&#10;The commit introduces a Table of Content (ToC) feature to the application. A new Svelte component, Toc.svelte, is created which allows smooth navigation and focus shifting within text. The ToC feature is also added to the Sidebar component for easier access." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Table of Content functionality to Svelte component&#10;&#10;The commit introduces a Table of Content (ToC) feature to the application. A new Svelte component, Toc.svelte, is created which allows smooth navigation and focus shifting within text. The ToC feature is also added to the Sidebar component for easier access." />
   </component>
 </project>

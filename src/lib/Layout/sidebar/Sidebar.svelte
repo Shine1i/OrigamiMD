@@ -59,7 +59,6 @@
 						<ContextMenu.Trigger>
 							<div
 								class:!opacity-100={show}
-								class:!hidden={!show}
 								class="fixed inset-0 bg-primary/10 opacity-0 transition-opacity duration-300 ease-linear"
 							></div>
 						</ContextMenu.Trigger>
