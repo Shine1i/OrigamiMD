@@ -9,10 +9,12 @@ import {
 	writeFile
 } from '@tauri-apps/api/fs';
 import { path } from '@tauri-apps/api';
+import type { JSONContent } from '@tiptap/core';
 
 interface FileOperations {
 	addNewFile(filePath: string, content: string): Promise<void>;
 	readFile(filePath: string): Promise<string>;
+
 	updateFile(filePath: string, content: string): Promise<void>;
 	removeFile(filePath: string): Promise<void>;
 	listDirectory(directory: string): Promise<FileEntry[]>;
@@ -28,7 +30,10 @@ export class TauriFileOperations implements FileOperations {
 	}
 
 	async updateFile(filePath: string, content: string): Promise<void> {
-		await writeFile(filePath, content, { dir: BaseDirectory.Document, append: false });
+		await writeFile(filePath, content, {
+			dir: BaseDirectory.Document,
+			append: false
+		});
 	}
 
 	async removeFile(filePath: string): Promise<void> {
@@ -59,10 +64,10 @@ export class NoteManager {
 
 	async addNewNote(noteTitle: string, textContent: string = ''): Promise<void> {
 		await this.ensureNoteDirectoryExists();
-		const filePath = `${this.notesDirectory}/${noteTitle}.md`;
+		const filePath = `${this.notesDirectory}/${noteTitle}.json`;
 
 		if (!(await exists(filePath, { dir: BaseDirectory.Document }))) {
-			await this.fileOperations.addNewFile(filePath, textContent);
+			await this.fileOperations.addNewFile(filePath, JSON.stringify(textContent));
 		} else {
 			throw new Error('Note already exists');
 		}
@@ -79,12 +84,12 @@ export class NoteManager {
 		}
 	}
 
-	async updateNoteContent(noteTitle: string, content: string): Promise<void> {
+	async updateNoteContent(noteTitle: string, content: JSONContent): Promise<void> {
 		await this.ensureNoteDirectoryExists();
 		const filePath = `${this.notesDirectory}/${noteTitle}`;
 
 		if (await exists(filePath, { dir: BaseDirectory.Document })) {
-			await this.fileOperations.updateFile(filePath, content);
+			await this.fileOperations.updateFile(filePath, JSON.stringify(content));
 		} else {
 			throw new Error('Note does not exist');
 		}

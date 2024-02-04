@@ -53,17 +53,17 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
   }
 }
 
-.milkdown .tiptap {
+.tiptap {
   @apply px-2  rounded w-full;
 
 }
 
-.editor .tiptap {
-  @apply h-full shadow outline-none prose prose-white dark:prose-invert  rounded-md w-full !important;
+.tiptap {
+  @apply h-full shadow outline-none   rounded-md w-full !important;
   min-height: 655px;
   max-height: 80vh; /* Adjust the maximum height value */
   min-width: calc(100%);

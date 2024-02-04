@@ -18,11 +18,13 @@
 		}
 	});
 	import * as ContextMenu from '$lib/components/ui/context-menu';
+	$: console.log($editorStore);
 	const selectNote = async (noteName: string) => {
-		const markdownContent = await $fileHandlerStore.retrieveNote(noteName);
+		console.log(noteName);
 		console.log('click');
+		const markdownContent = await $fileHandlerStore.retrieveNote(noteName);
+
 		editorStore.update((state) => ({
-			...state,
 			currentNote: noteName,
 			noteContent: markdownContent
 		}));
@@ -43,7 +45,7 @@
 
 			await $fileHandlerStore.addNewNote(noteName, '');
 
-			notes = [...notes, noteName + '.md'];
+			notes = [...notes, noteName];
 		} catch (error) {
 			console.error('Error adding note: ', error);
 		}
