@@ -1,11 +1,11 @@
 <script lang="ts">
 	import '../app.pcss';
 	import * as Menubar from '$lib/components/ui/menubar';
-	import Sidebar from '$lib/Layout/Sidebar.svelte';
+	import Sidebar from '$lib/Layout/sidebar/Sidebar.svelte';
 	import Titlebar from '$lib/Layout/Titlebar.svelte';
 	let bookmarks = false;
 	let fullUrls = true;
-	const profileRadioValue = 'benoit';
+	// const profileRadioValue = 'benoit';
 	let show = false;
 </script>
 

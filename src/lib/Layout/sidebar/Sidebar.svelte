@@ -2,54 +2,22 @@
 	import { FileText } from 'radix-icons-svelte';
 	import { onMount } from 'svelte';
 	import { editorStore, fileHandlerStore } from '$lib/stores';
-
+	import { addNote, deleteNote, getNotes, selectNote } from '$lib/Layout/sidebar/sidebarController';
+	import * as ContextMenu from '$lib/components/ui/context-menu';
 	export let show: boolean;
 
 	let notes: string[] = [];
 
 	onMount(async () => {
 		try {
-			if ($fileHandlerStore) {
-				notes = await $fileHandlerStore.fetchAllNotes();
-				console.log('notes', notes);
-			}
+			await getNotes($fileHandlerStore);
 		} catch (error) {
 			console.error('Error reading notes $fileHandlerStore: ', error);
 		}
 	});
-	import * as ContextMenu from '$lib/components/ui/context-menu';
-	$: console.log($editorStore);
-	const selectNote = async (noteName: string) => {
-		console.log(noteName);
-		console.log('click');
-		const markdownContent = await $fileHandlerStore.retrieveNote(noteName);
-
-		editorStore.update((state) => ({
-			currentNote: noteName,
-			noteContent: markdownContent
-		}));
-	};
-	const deleteNote = async (noteName: string) => {
-		console.log('deleting');
-		try {
-			await $fileHandlerStore.removeNote(noteName);
-			notes = notes.filter((note) => note !== noteName);
-		} catch (error) {
-			console.error('Error deleting note: ', error);
-		}
-	};
-	const addNote = async () => {
-		try {
-			const noteName = prompt('Enter the new note name:');
-			if (!noteName) return;
-
-			await $fileHandlerStore.addNewNote(noteName, '');
-
-			notes = [...notes, noteName];
-		} catch (error) {
-			console.error('Error adding note: ', error);
-		}
-	};
+	editorStore.subscribe((state) => {
+		notes = state.notes;
+	});
 </script>
 
 <aside
@@ -74,7 +42,11 @@
 						></div>
 					</ContextMenu.Trigger>
 					<ContextMenu.Content class="w-64">
-						<ContextMenu.Item inset class="cursor-pointer" on:click={() => addNote()}>
+						<ContextMenu.Item
+							inset
+							class="cursor-pointer"
+							on:click={() => addNote($fileHandlerStore)}
+						>
 							Add Note
 							<ContextMenu.Shortcut>⌘]</ContextMenu.Shortcut>
 						</ContextMenu.Item>
@@ -96,7 +68,10 @@
 				{#each notes as note (note)}
 					<ContextMenu.Root>
 						<ContextMenu.Trigger class="z-[999] min-w-full">
-							<button class=" w-full cursor-pointer" on:click={() => selectNote(note)}>
+							<button
+								class=" w-full cursor-pointer"
+								on:click={() => selectNote(note, $fileHandlerStore)}
+							>
 								<li class=" flex w-full cursor-pointer gap-1 p-2 pl-3 hover:bg-accent">
 									<FileText size={15} />
 									<span>{note}</span>
@@ -104,7 +79,10 @@
 							</button>
 						</ContextMenu.Trigger>
 						<ContextMenu.Content class="w-64">
-							<ContextMenu.Item class="cursor-pointer" inset on:click={() => deleteNote(note)}
+							<ContextMenu.Item
+								class="cursor-pointer"
+								inset
+								on:click={() => deleteNote(note, $fileHandlerStore)}
 								>Delete Note
 								<ContextMenu.Shortcut>⌘R</ContextMenu.Shortcut>
 							</ContextMenu.Item>

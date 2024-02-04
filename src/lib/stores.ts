@@ -5,8 +5,11 @@ export const fileHandlerStore = writable(new NoteManager('Notes', new TauriFileO
 interface NoteController {
 	currentNote: string;
 	noteContent: string;
+	notes: string[];
 }
+
 export const editorStore = writable<NoteController>({
 	currentNote: '',
-	noteContent: ''
+	noteContent: '',
+	notes: []
 });
