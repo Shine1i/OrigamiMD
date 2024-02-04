@@ -20,6 +20,7 @@
 	import * as ContextMenu from '$lib/components/ui/context-menu';
 	const selectNote = async (noteName: string) => {
 		const markdownContent = await $fileHandlerStore.retrieveNote(noteName);
+		console.log('click');
 		editorStore.update((state) => ({
 			...state,
 			currentNote: noteName,
@@ -51,7 +52,7 @@
 
 <aside
 	class:!-translate-x-full={show}
-	class="hidden translate-x-0 transform border-r pt-6 transition duration-300 ease-in-out lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
+	class="mt-16 hidden translate-x-0 transform border-r transition duration-300 ease-in-out lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
 >
 	<div
 		class:!opacity-100={show}
@@ -94,7 +95,7 @@
 					<ContextMenu.Root>
 						<ContextMenu.Trigger class="z-[999] min-w-full">
 							<button class=" w-full cursor-pointer" on:click={() => selectNote(note)}>
-								<li class=" flex w-full cursor-pointer gap-1 p-2 pl-3 hover:bg-slate-400/25">
+								<li class=" flex w-full cursor-pointer gap-1 p-2 pl-3 hover:bg-accent">
 									<FileText size={15} />
 									<span>{note}</span>
 								</li>

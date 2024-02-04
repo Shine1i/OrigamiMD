@@ -53,6 +53,17 @@ const config = {
 				}
 			}),
 			colors: {
+				'dracula-background': '#0B0D0F',
+				'dracula-comment': '#708CA9',
+				'dracula-selection': '#414D58',
+				'dracula-foreground': '#F8F8F2',
+				'dracula-cyan': '#80FFEA',
+				'dracula-green': '#8AFF80',
+				'dracula-orange': '#FFCA80',
+				'dracula-pink': '#FF80BF',
+				'dracula-purple': '#9580FF',
+				'dracula-red': '#FF9580',
+				'dracula-yellow': '#FFFF80',
 				border: 'hsl(var(--border) / <alpha-value>)',
 				input: 'hsl(var(--input) / <alpha-value>)',
 				ring: 'hsl(var(--ring) / <alpha-value>)',

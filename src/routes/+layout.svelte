@@ -1,15 +1,16 @@
 <script lang="ts">
 	import '../app.pcss';
 	import * as Menubar from '$lib/components/ui/menubar';
-	import '@milkdown/theme-nord/style.css';
 	import Sidebar from '$lib/Layout/Sidebar.svelte';
+	import Titlebar from '$lib/Layout/Titlebar.svelte';
 	let bookmarks = false;
 	let fullUrls = true;
 	const profileRadioValue = 'benoit';
 	let show = false;
 </script>
 
-<Menubar.Root class="fixed z-[60] w-full !border-b border-x-background border-t-background">
+<Titlebar />
+<Menubar.Root class="fixed top-8 z-[60] w-full !border-b border-x-background border-t-background ">
 	<Menubar.Menu>
 		<Menubar.Trigger>File</Menubar.Trigger>
 		<Menubar.Content class="w-60">
@@ -78,9 +79,9 @@
 <div class="h-full overflow-x-hidden">
 	<main
 		class:expanded={show}
-		class=" h-full w-full translate-x-0 transform pl-72 pt-10 transition duration-300 ease-in-out"
+		class=" h-full w-full translate-x-0 transform pl-72 transition duration-300 ease-in-out"
 	>
-		<div class="h-full w-full overflow-hidden px-2">
+		<div class="h-full w-full overflow-hidden px-2 pt-20">
 			<slot />
 		</div>
 	</main>

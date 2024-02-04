@@ -16,6 +16,17 @@
       "path": {
         "all": true
       },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
+      },
       "fs": {
         "all": true,
         "readFile": true,
@@ -75,7 +86,8 @@
         "height": 720,
         "resizable": true,
         "title": "Origami",
-        "width": 1280
+        "width": 1280,
+        "decorations": false
       }
     ]
   }
