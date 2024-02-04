@@ -41,6 +41,7 @@
     "@sveltejs/adapter-static": "^3.0.1",
     "@tauri-apps/api": "^1.5.3",
     "@tauri-apps/cli": "^1.5.9",
+    "@tiptap-pro/extension-table-of-contents": "^2.6.4",
     "@tiptap/core": "^2.2.1",
     "@tiptap/extension-character-count": "^2.2.1",
     "@tiptap/extension-code-block-lowlight": "^2.2.1",

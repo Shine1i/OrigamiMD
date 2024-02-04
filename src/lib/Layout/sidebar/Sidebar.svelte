@@ -8,6 +8,7 @@
 
 	let notes: string[] = [];
 	import * as Tabs from '$lib/components/ui/tabs';
+	import Toc from '$lib/components/Toc.svelte';
 	onMount(async () => {
 		try {
 			await getNotes($fileHandlerStore);
@@ -126,6 +127,8 @@
 						</button>
 					</li>
 				</ul>
+			{:else if $editorStore.toc !== null}
+				<Toc itemList={$editorStore.toc} />
 			{/if}
 		</nav>
 	</div>

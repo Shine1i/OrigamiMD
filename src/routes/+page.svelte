@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import type { Readable } from 'svelte/store';
 	import { createEditor, Editor, EditorContent } from 'svelte-tiptap';
 	import StarterKit from '@tiptap/starter-kit';
@@ -14,6 +14,7 @@
 	import CodeBlockLowlight from '@tiptap/extension-code-block-lowlight';
 	import { lowlight } from '$lib';
 	import { Placeholder } from '@tiptap/extension-placeholder';
+	import { getHierarchicalIndexes, TableOfContents } from '@tiptap-pro/extension-table-of-contents';
 
 	const limit = 280;
 
@@ -22,6 +23,12 @@
 			extensions: [
 				StarterKit,
 				Typography,
+				TableOfContents.configure({
+					getIndex: getHierarchicalIndexes,
+					onUpdate(toCNodes) {
+						$editorStore.toc = toCNodes;
+					}
+				}),
 				CharacterCount.configure({
 					limit
 				}),
@@ -50,6 +57,12 @@
 			}
 		});
 	});
+	onDestroy(() => {
+		if ($editor) {
+			$editor.destroy();
+			editor = null;
+		}
+	});
 	let previousNote: string = '';
 
 	function updateEditorContent(state) {
@@ -67,8 +80,3 @@
 </script>
 
 <EditorContent editor={$editor} />
-<!--{#if $editor}-->
-<!--	<span class="z-[1000] bg-red-500">-->
-<!--		{$editor.storage.characterCount.words()} words-->
-<!--	</span>-->
-<!--{/if}-->
