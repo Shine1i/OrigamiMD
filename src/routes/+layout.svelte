@@ -3,6 +3,8 @@
 	import * as Menubar from '$lib/components/ui/menubar';
 	import Sidebar from '$lib/Layout/sidebar/Sidebar.svelte';
 	import Titlebar from '$lib/Layout/Titlebar.svelte';
+	import { BubbleMenu, FloatingMenu } from 'svelte-tiptap';
+	import { editorStore } from '$lib/stores';
 	let bookmarks = false;
 	let fullUrls = true;
 	// const profileRadioValue = 'benoit';
@@ -10,7 +12,7 @@
 </script>
 
 <Titlebar />
-<Menubar.Root class="fixed top-8 z-[60] w-full !border-b border-x-background border-t-background ">
+<Menubar.Root class="fixed top-8 z-[60] w-full border-none ">
 	<Menubar.Menu>
 		<Menubar.Trigger>File</Menubar.Trigger>
 		<Menubar.Content class="w-60">
@@ -87,16 +89,17 @@
 	</main>
 </div>
 <div
-	class:!-translate-x-72={show}
-	class="fixed inset-x-0 bottom-0 z-10 flex h-6 translate-x-0 transform items-center bg-background px-4 shadow-sm transition duration-300 ease-in-out sm:gap-x-6 lg:ml-72"
+	class:expanded={show}
+	class="fixed inset-x-0 bottom-0 z-10 flex h-6 w-full translate-x-0 transform items-center justify-between bg-background shadow-sm transition duration-300 ease-in-out sm:gap-x-6 lg:pl-72"
 >
 	<button
+		class="pl-2"
 		on:click={() => {
 			show = !show;
 		}}
 	>
 		<svg
-			class="cursor-pointer opacity-70 hover:opacity-100"
+			class="cursor-pointer stroke-muted-foreground opacity-70 hover:opacity-100"
 			width="15"
 			height="15"
 			viewBox="0 0 15 15"
@@ -110,6 +113,11 @@
 			></path></svg
 		>
 	</button>
+	{#if $editorStore.editor}
+		<span class="pr-2 text-sm text-muted-foreground">
+			{$editorStore.editor.storage.characterCount.words()} words
+		</span>
+	{/if}
 </div>
 
 <style>

@@ -18,15 +18,15 @@ const config = {
 				white: {
 					css: {
 						'--tw-prose-body': 'hsl(var(--foreground))', // Main text color, dark gray
-						'--tw-prose-headings': 'hsl(var(--primary))',
+						'--tw-prose-headings': theme('colors.dracula-purple'),
 						'--tw-prose-lead': theme('colors.gray[700]'), // Leading paragraph text color
 						'--tw-prose-links': 'hsl(var(--primary))', // Link color
 						'--tw-prose-bold': theme('colors.gray[900]'), // Bold text color, same as body color
-						'--tw-prose-counters': 'hsl(var(--primary))',
-						'--tw-prose-bullets': 'hsl(var(--primary))',
+						'--tw-prose-counters': theme('colors.dracula-purple'),
+						'--tw-prose-bullets': theme('colors.dracula-purple'),
 						'--tw-prose-hr': theme('colors.slate[300]'), // Horizontal Rule color
 						'--tw-prose-quotes': theme('colors.slate[600]'), // Quotes color
-						'--tw-prose-quote-borders': theme('colors.slate[200]'), // Quote border color
+						'--tw-prose-quote-borders': theme('colors.dracula-purple'),
 						'--tw-prose-captions': theme('colors.gray[500]'), // Caption text color
 						'--tw-prose-code': theme('colors.slate[900]'), // Inline code text color
 						'--tw-prose-pre-code': 'hsl(var(--foreground))',
@@ -34,15 +34,15 @@ const config = {
 						'--tw-prose-th-borders': theme('colors.gray[200]'), // Table Header border color
 						'--tw-prose-td-borders': theme('colors.gray[200]'), // Table Data border color
 						'--tw-prose-invert-body': 'hsl(var(--foreground))',
-						'--tw-prose-invert-headings': 'hsl(var(--primary))',
+						'--tw-prose-invert-headings': theme('colors.dracula-purple'),
 						'--tw-prose-invert-lead': theme('colors.gray[300]'),
 						'--tw-prose-invert-links': 'hsl(var(--primary))',
 						'--tw-prose-invert-bold': theme('colors.white'),
-						'--tw-prose-invert-counters': 'hsl(var(--primary))',
-						'--tw-prose-invert-bullets': 'hsl(var(--primary))',
-						'--tw-prose-invert-hr': theme('colors.gray[700]'),
+						'--tw-prose-invert-counters': theme('colors.dracula-purple'),
+						'--tw-prose-invert-bullets': theme('colors.dracula-purple'),
+						'--tw-prose-invert-hr': theme('colors.dracula-selection'),
 						'--tw-prose-invert-quotes': theme('colors.gray[100]'),
-						'--tw-prose-invert-quote-borders': theme('colors.gray[700]'),
+						'--tw-prose-invert-quote-borders': theme('colors.dracula-purple'),
 						'--tw-prose-invert-captions': theme('colors.gray[400]'),
 						'--tw-prose-invert-code': theme('colors.white'),
 						'--tw-prose-invert-pre-code': theme('colors.gray[300]'),
