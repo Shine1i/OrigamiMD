@@ -1,8 +1,8 @@
 <script lang="ts">
 	import '../app.pcss';
 	import * as Menubar from '$lib/components/ui/menubar';
-	import Sidebar from '$lib/Layout/sidebar/Sidebar.svelte';
-	import Titlebar from '$lib/Layout/Titlebar.svelte';
+	import Sidebar from '$lib/components/Layout/sidebar/Sidebar.svelte';
+	import Titlebar from '$lib/components/Layout/Titlebar.svelte';
 	import { BubbleMenu, FloatingMenu } from 'svelte-tiptap';
 	import { editorStore } from '$lib/stores';
 	let bookmarks = false;

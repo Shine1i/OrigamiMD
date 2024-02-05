@@ -2,7 +2,12 @@
 	import { FileText } from 'radix-icons-svelte';
 	import { onMount } from 'svelte';
 	import { editorStore, fileHandlerStore } from '$lib/stores';
-	import { addNote, deleteNote, getNotes, selectNote } from '$lib/Layout/sidebar/sidebarController';
+	import {
+		addNote,
+		deleteNote,
+		getNotes,
+		selectNote
+	} from '$lib/components/Layout/sidebar/sidebarController';
 	import * as ContextMenu from '$lib/components/ui/context-menu';
 	export let show: boolean;
 
@@ -31,7 +36,7 @@
 		class="fixed inset-0 bg-primary/10 opacity-0 transition-opacity duration-300 ease-linear"
 	></div>
 	<div class="flex grow flex-col gap-y-2 overflow-y-auto border-r">
-		<div class="relative flex h-fit w-full shrink-0 items-center pt-2">
+		<div class="relative z-[10000] flex h-fit w-full shrink-0 items-center pt-2">
 			<nav class="-mb-px flex w-full justify-around space-x-8" aria-label="Tabs">
 				<button
 					on:click={() => {

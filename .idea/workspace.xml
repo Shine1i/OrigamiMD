@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Add Table of Content functionality to Svelte component&#10;&#10;The commit introduces a Table of Content (ToC) feature to the application. A new Svelte component, Toc.svelte, is created which allows smooth navigation and focus shifting within text. The ToC feature is also added to the Sidebar component for easier access.">
+    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="fixed bug where it woudnt save to file if notecontent is empty">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/Layout/sidebar/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/Layout/sidebar/Sidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.pcss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.pcss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Layout/Titlebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/Titlebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Layout/sidebar/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/Layout/sidebar/sidebarController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/sidebarController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/markdown/editor/CodeblockHighlight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/markdown/editor/plugins/CodeblockHighlight.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/markdown/utils/editor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/markdown/utils/editor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +89,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/lib/components" />
+      <recent name="$PROJECT_DIR$/src/lib/markdown/editor/plugins" />
       <recent name="$PROJECT_DIR$/src/lib/Layout/sidebar" />
       <recent name="$PROJECT_DIR$/src/lib/components/ui" />
     </key>
@@ -132,7 +140,10 @@
       <workItem from="1706965957347" duration="6401000" />
       <workItem from="1706979118365" duration="4243000" />
       <workItem from="1707040077314" duration="11317000" />
-      <workItem from="1707055095411" duration="9294000" />
+      <workItem from="1707055095411" duration="9372000" />
+      <workItem from="1707072916397" duration="1303000" />
+      <workItem from="1707081686651" duration="337000" />
+      <workItem from="1707157308966" duration="2064000" />
     </task>
     <task id="LOCAL-00001" summary="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included.">
       <option name="closed" value="true" />
@@ -262,7 +273,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707064183360</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fixed bug where it woudnt save to file if notecontent is empty">
+      <option name="closed" value="true" />
+      <created>1707064457714</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1707064457714</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,6 +320,7 @@
     <MESSAGE value="Updated Menubar and Sidebar UI, added word count to editor&#10;&#10;This update carries a complete UI overhaul for Menubar and Sidebar. Menubar features changes in its border style. Sidebar now includes a tab functionality for categorizing different sections. Also, the file counts a total number of words in the text editor and displays it in the application's main interface. Various adjustments were made to support and enhance these changes." />
     <MESSAGE value="Improve Menubar and Sidebar UI, add word count in editor store&#10;&#10;The update revamps the Menubar and Sidebar user interface, providing a cleaner and more organized appearance. The Sidebar now includes tabs for easier navigation. Additional feature includes showing total word count from the text editor in the application's main view, offering more information and convenience to the user." />
     <MESSAGE value="Add Table of Content functionality to Svelte component&#10;&#10;The commit introduces a Table of Content (ToC) feature to the application. A new Svelte component, Toc.svelte, is created which allows smooth navigation and focus shifting within text. The ToC feature is also added to the Sidebar component for easier access." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Table of Content functionality to Svelte component&#10;&#10;The commit introduces a Table of Content (ToC) feature to the application. A new Svelte component, Toc.svelte, is created which allows smooth navigation and focus shifting within text. The ToC feature is also added to the Sidebar component for easier access." />
+    <MESSAGE value="fixed bug where it woudnt save to file if notecontent is empty" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug where it woudnt save to file if notecontent is empty" />
   </component>
 </project>

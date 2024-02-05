@@ -4,7 +4,7 @@
 	import { createEditor, Editor, EditorContent } from 'svelte-tiptap';
 	import StarterKit from '@tiptap/starter-kit';
 	import { editorStore, fileHandlerStore } from '$lib/stores';
-	import { updateNoteContent } from '$lib';
+	import { scrollToSelection, updateNoteContent } from '$lib';
 
 	import Typography from '@tiptap/extension-typography';
 
@@ -16,7 +16,7 @@
 	import { Placeholder } from '@tiptap/extension-placeholder';
 	import { getHierarchicalIndexes, TableOfContents } from '@tiptap-pro/extension-table-of-contents';
 
-	const limit = 280;
+	const limit = 3000;
 
 	onMount(() => {
 		editor = createEditor({
@@ -51,6 +51,8 @@
 				if ($editorStore.currentNote != '')
 					updateNoteContent(json, $fileHandlerStore, $editorStore.currentNote);
 				console.log('Note updated successfully');
+
+				scrollToSelection(editor);
 			},
 			onCreate: ({ editor }) => {
 				editor.commands.setContent('', true);
