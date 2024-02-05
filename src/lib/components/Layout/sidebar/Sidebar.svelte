@@ -42,15 +42,15 @@
 					on:click={() => {
 						tab = 0;
 					}}
-					class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-dracula-purple hover:text-muted-foreground/70"
+					class="w-1/2 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:border-dracula-purple hover:text-muted-foreground/70"
 					>My Account</button
 				>
 				<button
 					on:click={() => {
 						tab = 2;
 					}}
-					class="whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-muted-foreground hover:border-dracula-purple hover:text-muted-foreground/70"
-					>Company</button
+					class="w-1/2 whitespace-nowrap border-b-2 border-transparent px-1 py-4 text-sm font-medium text-muted-foreground hover:border-dracula-purple hover:text-muted-foreground/70"
+					>Table of content</button
 				>
 			</nav>
 		</div>
