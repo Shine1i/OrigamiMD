@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Update UI: add toggle group and modify sidebar text&#10;&#10;Created new toggle and toggle group features under UI components, helping users to easily toggle between options. Also, updated the sidebar text improving the title description. This commit overall enhances the usability and user experience of the interface.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lockb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/components/Toc.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Toc.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +29,7 @@
         <option value="toc" />
         <option value="TableOfContents" />
         <option value="TocNode" />
+        <option value="ToggleMenu" />
       </list>
     </option>
   </component>
@@ -61,28 +64,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.11.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.11.16&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/wasim/WebstormProjects/OrigamiMD&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.tauri.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/wasim/WebstormProjects/OrigamiMD/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/wasim/WebstormProjects/OrigamiMD/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "javascript.nodejs.core.library.configured.version": "20.11.0",
+    "javascript.nodejs.core.library.typings.version": "20.11.16",
+    "last_opened_file_path": "/home/wasim/WebstormProjects/OrigamiMD",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.tauri.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "/home/wasim/WebstormProjects/OrigamiMD/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "ts.external.directory.path": "/home/wasim/WebstormProjects/OrigamiMD/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/lib/components/Layout/sidebar" />
       <recent name="$PROJECT_DIR$/src/lib/components" />
       <recent name="$PROJECT_DIR$/src/lib/markdown/editor/plugins" />
       <recent name="$PROJECT_DIR$/src/lib/Layout/sidebar" />
@@ -142,7 +146,11 @@
       <workItem from="1707166394640" duration="33000" />
       <workItem from="1707168165262" duration="621000" />
       <workItem from="1707336005881" duration="94000" />
-      <workItem from="1707336100571" duration="255000" />
+      <workItem from="1707336100571" duration="277000" />
+      <workItem from="1707441269749" duration="16000" />
+      <workItem from="1707441290848" duration="115000" />
+      <workItem from="1707441414006" duration="757000" />
+      <workItem from="1707442175401" duration="3878000" />
     </task>
     <task id="LOCAL-00001" summary="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included.">
       <option name="closed" value="true" />
@@ -296,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707163441625</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Update UI: add toggle group and modify sidebar text&#10;&#10;Created new toggle and toggle group features under UI components, helping users to easily toggle between options. Also, updated the sidebar text improving the title description. This commit overall enhances the usability and user experience of the interface.">
+      <option name="closed" value="true" />
+      <created>1707336371406</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1707336371406</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -13,7 +13,7 @@
 
 	let notes: string[] = [];
 	import * as Tabs from '$lib/components/ui/tabs';
-	import Toc from '$lib/components/Toc.svelte';
+	import Toc from '$lib/components/Layout/sidebar/Toc.svelte';
 	onMount(async () => {
 		try {
 			await getNotes($fileHandlerStore);
