@@ -5,7 +5,7 @@ import type { TableOfContentData } from '@tiptap-pro/extension-table-of-contents
 
 export const fileHandlerStore = writable(new NoteManager('Notes', new TauriFileOperations()));
 interface NoteController {
-	editor: Editor | null;
+	editor: Editor | any;
 	currentNote: string;
 	noteContent: string;
 	notes: string[];
