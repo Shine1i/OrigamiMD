@@ -47,6 +47,7 @@
 		type="multiple"
 		class="divide-x rounded-md border bg-dracula-background p-0.5"
 	>
+		<!--		tiptap-extension-font-size-->
 		<div class="flex gap-2 px-1">
 			<Select.Root>
 				<Select.Trigger class="m-0 w-[90px] border-none p-0 pl-2 focus:ring-dracula-purple">
@@ -57,14 +58,41 @@
 					<Select.Item value="dark">Arial</Select.Item>
 					<Select.Item value="system">Helvetica</Select.Item>
 				</Select.Content>
-			</Select.Root><Select.Root>
-				<Select.Trigger class="m-0 w-[80px] border-none p-0 pl-2 focus:ring-dracula-purple">
-					<Select.Value placeholder="Medium" />
+			</Select.Root>
+			<Select.Root>
+				<Select.Trigger
+					class="m-0 w-[90px] rounded-md border-none p-0 pl-2 focus:ring-dracula-purple"
+				>
+					<Select.Value placeholder="Font" />
 				</Select.Trigger>
 				<Select.Content>
-					<Select.Item value="light">Inter</Select.Item>
-					<Select.Item value="dark">Arial</Select.Item>
-					<Select.Item value="system">Helvetica</Select.Item>
+					<Select.Item
+						value="Roboto"
+						on:click={() => $editorStore.editor.commands.setFontFamily('Roboto')}
+					>
+						Roboto {$editorStore.editor.isActive('textStyle', { fontFamily: 'Roboto' })
+							? ' (current font)'
+							: ''}
+					</Select.Item>
+					<Select.Item
+						value="Open Sans"
+						on:click={() => $editorStore.editor.commands.setFontFamily('Open Sans')}
+						>Open Sans</Select.Item
+					>
+					<Select.Item
+						value="Lora"
+						on:click={() => $editorStore.editor.commands.setFontFamily('Lora')}>Lora</Select.Item
+					>
+					<Select.Item
+						value="Source Code Pro"
+						on:click={() => $editorStore.editor.commands.setFontFamily('Source Code Pro')}
+						>Source Code Pro</Select.Item
+					>
+					<Select.Item
+						value="Merriweather"
+						on:click={() => $editorStore.editor.commands.setFontFamily('Merriweather')}
+						>Merriweather</Select.Item
+					>
 				</Select.Content>
 			</Select.Root>
 		</div>

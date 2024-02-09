@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lora:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -54,6 +60,7 @@
   }
   body {
     @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
@@ -73,10 +80,22 @@
   transform: translateX(-288px);
   width: calc(100% + 288px);
 }
-
-pre {
-  font-family: "JetBrainsMono", monospace;
+body {
+  font-family: 'Roboto', sans-serif;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+}
+p {
+  font-family: 'Lora', serif;
+}
+code {
+  font-family: 'Source Code Pro', monospace;
+}
+pre {
+  font-family: 'Merriweather', serif;
+}
+
   code {
     background: none;
     color: inherit;

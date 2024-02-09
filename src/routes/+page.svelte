@@ -23,6 +23,7 @@
 	import { Color } from '@tiptap/extension-color';
 	import { TextStyle } from '@tiptap/extension-text-style';
 	import ToggleMenu from '$lib/markdown/editor/ToggleMenu.svelte';
+	import { FontFamily } from '@tiptap/extension-font-family';
 	const limit = 3000;
 
 	onMount(() => {
@@ -31,6 +32,7 @@
 				StarterKit,
 				Typography,
 				Underline,
+				FontFamily,
 				TableOfContents.configure({
 					getIndex: getHierarchicalIndexes,
 					onUpdate(toCNodes) {

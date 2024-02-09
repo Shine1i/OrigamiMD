@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Update UI: add toggle group and modify sidebar text&#10;&#10;Created new toggle and toggle group features under UI components, helping users to easily toggle between options. Also, updated the sidebar text improving the title description. This commit overall enhances the usability and user experience of the interface.">
+    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Add ToggleMenu component to markdown editor&#10;&#10;Implemented a new ToggleMenu component in markdown editor for better UI with various toggle options like bold, italic, underline, etc. This update significantly improves the editability of the documents and user experience by offering a user-friendly interface to perform different editing operations in a smooth and efficient manner.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lockb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/Toc.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Toc.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.pcss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.pcss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/markdown/editor/ToggleMenu.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/markdown/editor/ToggleMenu.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,7 +150,7 @@
       <workItem from="1707441269749" duration="16000" />
       <workItem from="1707441290848" duration="115000" />
       <workItem from="1707441414006" duration="757000" />
-      <workItem from="1707442175401" duration="3878000" />
+      <workItem from="1707442175401" duration="5556000" />
     </task>
     <task id="LOCAL-00001" summary="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included.">
       <option name="closed" value="true" />
@@ -312,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707336371406</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add ToggleMenu component to markdown editor&#10;&#10;Implemented a new ToggleMenu component in markdown editor for better UI with various toggle options like bold, italic, underline, etc. This update significantly improves the editability of the documents and user experience by offering a user-friendly interface to perform different editing operations in a smooth and efficient manner.">
+      <option name="closed" value="true" />
+      <created>1707446184747</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1707446184747</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +338,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included." />
     <MESSAGE value="Add 'TodoList.md' for note-taking app development&#10;&#10;The commit introduces a new file 'TodoList.md', which outlines the phases of development for a note-taking application. This file provides a detailed list of core, intermediate, and advance features, including their sub-tasks, that are planned for implementation. The tasks are broadly categorized into markdown editor development, file management, note management, and user customizations." />
     <MESSAGE value="Add interactive menubar and side navigation in layout&#10;&#10;The code improvement primarily adds an interactive menubar with File, Edit, and View menus, along with their respective submenu items in the application layout. Additional code includes side navigation hidden by default and becomes visible on a specific trigger. These changes are aimed to enhance the user interface and provide a streamlined navigation experience." />
     <MESSAGE value="Implement Markdown editor and directory handling functionalities&#10;&#10;Added a Markdown editor and sidebar components to the application layout. The Markdown editor includes presets and plugins for standard markdown syntax, clipboard handling and document view history. The sidebar component fetches and displays note files from a specified directory and allows file selection for editing. Updated Tauri dependencies and configurations accordingly." />
@@ -355,6 +362,7 @@
     <MESSAGE value="Add scrollToSelection function in markdown editor&#10;&#10;Added a new function scrollToSelection in the markdown editor.ts file. The purpose of this function is to find the currently selected text in the editor and scroll to it's location if it's not already visible on the screen. This enhances user experience during text selection and editing." />
     <MESSAGE value="Update UI: add toggle group and modify sidebar text&#10;&#10;Created new toggle and toggle group features under UI components, helping users to easily toggle between options. Also, updated the sidebar text improving the title description. This commit overall enhances the usability and user experience of the" />
     <MESSAGE value="Update UI: add toggle group and modify sidebar text&#10;&#10;Created new toggle and toggle group features under UI components, helping users to easily toggle between options. Also, updated the sidebar text improving the title description. This commit overall enhances the usability and user experience of the interface." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update UI: add toggle group and modify sidebar text&#10;&#10;Created new toggle and toggle group features under UI components, helping users to easily toggle between options. Also, updated the sidebar text improving the title description. This commit overall enhances the usability and user experience of the interface." />
+    <MESSAGE value="Add ToggleMenu component to markdown editor&#10;&#10;Implemented a new ToggleMenu component in markdown editor for better UI with various toggle options like bold, italic, underline, etc. This update significantly improves the editability of the documents and user experience by offering a user-friendly interface to perform different editing operations in a smooth and efficient manner." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ToggleMenu component to markdown editor&#10;&#10;Implemented a new ToggleMenu component in markdown editor for better UI with various toggle options like bold, italic, underline, etc. This update significantly improves the editability of the documents and user experience by offering a user-friendly interface to perform different editing operations in a smooth and efficient manner." />
   </component>
 </project>
