@@ -31,8 +31,7 @@ export const deleteNote = async (noteName: string, fileHandlerStore: NoteManager
 	});
 };
 
-export const addNote = async (fileHandlerStore: NoteManager) => {
-	const noteName = prompt('Enter the new note name:');
+export const addNote = async (fileHandlerStore: NoteManager, noteName: string) => {
 	if (!noteName) return;
 
 	await fileHandlerStore.addNewNote(noteName, '');

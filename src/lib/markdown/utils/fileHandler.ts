@@ -69,11 +69,11 @@ export class NoteManager {
 
 		if (!(await exists(filePath, { dir: BaseDirectory.Document }))) {
 			await this.fileOperations.addNewFile(filePath, JSON.stringify(textContent));
-			toast(`Successfully created Note `, {
+			toast.success(`Successfully created Note `, {
 				description: `Note Name:  ${noteTitle}`
 			});
 		} else {
-			toast(`Something went wrong `);
+			toast.error(`Something went wrong `);
 			throw new Error('Note already exists');
 		}
 	}
@@ -83,12 +83,12 @@ export class NoteManager {
 		const filePath = `${this.notesDirectory}/${noteTitle}`;
 
 		if (await exists(filePath, { dir: BaseDirectory.Document })) {
-			toast(`Successfully retrieved Note`, {
+			toast.success(`Successfully retrieved Note`, {
 				description: `Note Name:  ${noteTitle}`
 			});
 			return await this.fileOperations.readFile(filePath);
 		} else {
-			toast(`Something went wrong reading Note`, {
+			toast.error(`Something went wrong reading Note`, {
 				description: `Note Name:  ${noteTitle}`
 			});
 			throw new Error('Note does not exist');
@@ -102,7 +102,7 @@ export class NoteManager {
 		if (await exists(filePath, { dir: BaseDirectory.Document })) {
 			await this.fileOperations.updateFile(filePath, JSON.stringify(content));
 		} else {
-			toast(`Something went wrong updating Note`, {
+			toast.error(`Something went wrong updating Note`, {
 				description: `Note Name:  ${noteTitle}`
 			});
 			throw new Error('Note does not exist');
@@ -115,11 +115,11 @@ export class NoteManager {
 
 		if (await exists(filePath, { dir: BaseDirectory.Document })) {
 			await this.fileOperations.removeFile(filePath);
-			toast(`Successfully removed Note `, {
+			toast.success(`Successfully removed Note `, {
 				description: `Note Name:  ${noteTitle}`
 			});
 		} else {
-			toast(`Something went wrong removing Note`, {
+			toast.error(`Something went wrong removing Note`, {
 				description: `Note Name:  ${noteTitle}`
 			});
 			throw new Error('Note does not exist');
@@ -129,9 +129,10 @@ export class NoteManager {
 	async fetchAllNotes() {
 		const directoryContents = await this.fileOperations.listDirectory(this.notesDirectory);
 		await this.buildNoteList(directoryContents);
-		toast(`Successfully fetched All Notes `, {
+		toast.success(`Successfully fetched All Notes `, {
 			description: `Total count: ${directoryContents.length}`
 		});
+
 		return this.collectedNotes;
 	}
 

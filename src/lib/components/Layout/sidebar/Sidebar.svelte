@@ -15,7 +15,7 @@
 	let notes: string[] = [];
 	import * as Tabs from '$lib/components/ui/tabs';
 	import Toc from '$lib/components/Layout/sidebar/Toc.svelte';
-	import Sheet from '$lib/components/Layout/sidebar/Sheet.svelte';
+	import Sheet from '$lib/components/Layout/sidebar/Dialog.svelte';
 
 	onMount(async () => {
 		try {
