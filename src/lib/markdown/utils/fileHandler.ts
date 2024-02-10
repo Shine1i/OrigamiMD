@@ -51,9 +51,9 @@ export class NoteManager {
 	notesDirectory: string;
 	private collectedNotes: string[] = [];
 
-	constructor(notesDirectory: string, fileOperations: FileOperations) {
+	constructor(notesDirectory: string) {
 		this.notesDirectory = notesDirectory;
-		this.fileOperations = fileOperations;
+		this.fileOperations = new TauriFileOperations();
 	}
 
 	async ensureNoteDirectoryExists(): Promise<void> {

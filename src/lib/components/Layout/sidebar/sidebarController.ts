@@ -1,5 +1,5 @@
 // Import relevant dependencies
-import { editorStore, fileHandlerStore } from '$lib/stores';
+import { editorStore } from '$lib/stores';
 import { NoteManager } from '$lib';
 
 export const getNotes = async (fileHandlerStore: NoteManager) => {

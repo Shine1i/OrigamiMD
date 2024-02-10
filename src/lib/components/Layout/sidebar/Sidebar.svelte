@@ -2,6 +2,7 @@
 	import { FileText } from 'radix-icons-svelte';
 	import { onMount } from 'svelte';
 	import { editorStore, fileHandlerStore } from '$lib/stores';
+	import * as AlertDialog from '$lib/components/ui/alert-dialog';
 	import {
 		addNote,
 		deleteNote,
@@ -14,6 +15,7 @@
 	let notes: string[] = [];
 	import * as Tabs from '$lib/components/ui/tabs';
 	import Toc from '$lib/components/Layout/sidebar/Toc.svelte';
+	import Sheet from '$lib/components/Layout/sidebar/Sheet.svelte';
 
 	onMount(async () => {
 		try {
@@ -26,8 +28,29 @@
 		notes = state.notes;
 	});
 	let tab: number = 0;
+	let open: boolean = false;
+	let selectedNote: string;
+	let sheet: boolean = false;
 </script>
 
+<Sheet open={sheet} />
+<AlertDialog.Root bind:open>
+	<AlertDialog.Content>
+		<AlertDialog.Header>
+			<AlertDialog.Title>Are you sure you want to delete this note?</AlertDialog.Title>
+			<AlertDialog.Description>
+				This action cannot be undone. This will permanently delete this note and all data inside.
+			</AlertDialog.Description>
+		</AlertDialog.Header>
+		<AlertDialog.Footer>
+			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
+			<AlertDialog.Action
+				on:click={() => deleteNote(selectedNote, $fileHandlerStore)}
+				class="bg-dracula-red hover:bg-dracula-red/80">Delete Note</AlertDialog.Action
+			>
+		</AlertDialog.Footer>
+	</AlertDialog.Content>
+</AlertDialog.Root>
 <aside
 	class:!-translate-x-full={show}
 	class="mt-16 hidden translate-x-0 transform border-r transition duration-300 ease-in-out lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col"
@@ -73,7 +96,7 @@
 								inset
 								class="cursor-pointer"
 								on:click={() => {
-									addNote($fileHandlerStore);
+									sheet = !sheet;
 								}}
 							>
 								Add Note
@@ -111,10 +134,15 @@
 								<ContextMenu.Item
 									class="cursor-pointer"
 									inset
-									on:click={() => deleteNote(note, $fileHandlerStore)}
-									>Delete Note
+									on:click={() => {
+										open = true;
+										selectedNote = note;
+									}}
+								>
+									Delete Note
 									<ContextMenu.Shortcut>⌘R</ContextMenu.Shortcut>
 								</ContextMenu.Item>
+
 								<ContextMenu.Item inset class="cursor-pointer">
 									Forward
 									<ContextMenu.Shortcut>⌘]</ContextMenu.Shortcut>

@@ -11,7 +11,7 @@
 	} from 'radix-icons-svelte';
 	import * as ToggleGroup from '$lib/components/ui/toggle-group';
 	import * as Select from '$lib/components/ui/select';
-	import * as Tooltip from '$lib/components/ui/tooltip';
+
 	import { editorStore } from '$lib/stores';
 	const setLink = () => {
 		if (!$editorStore.editor) return;
@@ -68,7 +68,7 @@
 				<Select.Content>
 					<Select.Item
 						value="Roboto"
-						on:click={() => $editorStore.editor.commands.setFontFamily('Roboto')}
+						on:click={() => $editorStore.editor?.commands.setFontFamily('Roboto')}
 					>
 						Roboto {$editorStore.editor.isActive('textStyle', { fontFamily: 'Roboto' })
 							? ' (current font)'
@@ -76,21 +76,21 @@
 					</Select.Item>
 					<Select.Item
 						value="Open Sans"
-						on:click={() => $editorStore.editor.commands.setFontFamily('Open Sans')}
+						on:click={() => $editorStore.editor?.commands.setFontFamily('Open Sans')}
 						>Open Sans</Select.Item
 					>
 					<Select.Item
 						value="Lora"
-						on:click={() => $editorStore.editor.commands.setFontFamily('Lora')}>Lora</Select.Item
+						on:click={() => $editorStore.editor?.commands.setFontFamily('Lora')}>Lora</Select.Item
 					>
 					<Select.Item
 						value="Source Code Pro"
-						on:click={() => $editorStore.editor.commands.setFontFamily('Source Code Pro')}
+						on:click={() => $editorStore.editor?.commands.setFontFamily('Source Code Pro')}
 						>Source Code Pro</Select.Item
 					>
 					<Select.Item
 						value="Merriweather"
-						on:click={() => $editorStore.editor.commands.setFontFamily('Merriweather')}
+						on:click={() => $editorStore.editor?.commands.setFontFamily('Merriweather')}
 						>Merriweather</Select.Item
 					>
 				</Select.Content>

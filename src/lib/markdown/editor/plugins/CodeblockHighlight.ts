@@ -1,6 +1,15 @@
 import css from 'highlight.js/lib/languages/css';
 import js from 'highlight.js/lib/languages/javascript';
 import ts from 'highlight.js/lib/languages/typescript';
+import c from 'highlight.js/lib/languages/c';
+import cpp from 'highlight.js/lib/languages/cpp';
+import java from 'highlight.js/lib/languages/java';
+import python from 'highlight.js/lib/languages/python';
+import go from 'highlight.js/lib/languages/go';
+import rust from 'highlight.js/lib/languages/rust';
+import ruby from 'highlight.js/lib/languages/ruby';
+import swift from 'highlight.js/lib/languages/swift';
+import scala from 'highlight.js/lib/languages/scala';
 import html from 'highlight.js/lib/languages/xml';
 import { common, createLowlight } from 'lowlight';
 
@@ -10,3 +19,12 @@ lowlight.register('html', html);
 lowlight.register('css', css);
 lowlight.register('js', js);
 lowlight.register('ts', ts);
+lowlight.register('c', c);
+lowlight.register('cpp', cpp);
+lowlight.register('java', java);
+lowlight.register('python', python);
+lowlight.register('go', go);
+lowlight.register('rust', rust);
+lowlight.register('ruby', ruby);
+lowlight.register('swift', swift);
+lowlight.register('scala', scala);

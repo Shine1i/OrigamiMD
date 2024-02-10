@@ -1,11 +1,11 @@
 import { NoteManager, TauriFileOperations } from '$lib';
-import { type Readable, writable } from 'svelte/store';
+import { writable } from 'svelte/store';
 import { Editor } from 'svelte-tiptap';
 import type { TableOfContentData } from '@tiptap-pro/extension-table-of-contents';
 
-export const fileHandlerStore = writable(new NoteManager('Notes', new TauriFileOperations()));
+export const fileHandlerStore = writable(new NoteManager('Notes'));
 interface NoteController {
-	editor: Editor | any;
+	editor: Editor | undefined;
 	currentNote: string;
 	noteContent: string;
 	notes: string[];
@@ -13,7 +13,7 @@ interface NoteController {
 }
 
 export const editorStore = writable<NoteController>({
-	editor: null,
+	editor: undefined,
 	currentNote: '',
 	noteContent: '',
 	notes: [],

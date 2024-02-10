@@ -24,7 +24,6 @@
 	import { TextStyle } from '@tiptap/extension-text-style';
 	import ToggleMenu from '$lib/markdown/editor/ToggleMenu.svelte';
 	import { FontFamily } from '@tiptap/extension-font-family';
-	const limit = 3000;
 
 	onMount(() => {
 		editor = createEditor({
@@ -44,9 +43,7 @@
 					autolink: true
 				}),
 				Highlight.configure({ multicolor: true }),
-				CharacterCount.configure({
-					limit
-				}),
+				CharacterCount,
 				TextStyle,
 				Color,
 				CodeBlockLowlight.configure({
