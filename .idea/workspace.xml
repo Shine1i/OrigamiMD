@@ -4,16 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Refactor file operations and improve UI functionalities.&#10;&#10;The commit message updates multiple files to improve the application functionality and user interface. The main changes include refactoring how file operations are handled in the markdown editor and adding interactive toasts for real-time feedback during file operations. Further improvements include expanding language support in codeblock highlights and adjusting the editor store setting.">
-      <change afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Dialog.svelte" afterDir="false" />
+    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Add new Dialog.svelte file for note creation &#10;&#10;This new file introduces a dialog to facilitate note creation. This includes a carousel feature for template selection and user input for note naming. Furthermore, upon clicking 'Create Note', the function addNote is called to handle the new note creation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bun.lockb" beforeDir="false" afterPath="$PROJECT_DIR$/bun.lockb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sheet.svelte" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/sidebarController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/sidebarController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/tauri.conf.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Dialog.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Dialog.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/components/ui/sonner/sonner.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/ui/sonner/sonner.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/markdown/utils/fileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/markdown/utils/fileHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +160,8 @@
       <workItem from="1707563521612" duration="6916000" />
       <workItem from="1707574842239" duration="815000" />
       <workItem from="1707576800318" duration="60000" />
-      <workItem from="1707576867261" duration="2486000" />
+      <workItem from="1707576867261" duration="4441000" />
+      <workItem from="1707583071550" duration="2560000" />
     </task>
     <task id="LOCAL-00001" summary="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included.">
       <option name="closed" value="true" />
@@ -366,7 +363,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707572135776</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Add new Dialog.svelte file for note creation &#10;&#10;This new file introduces a dialog to facilitate note creation. This includes a carousel feature for template selection and user input for note naming. Furthermore, upon clicking 'Create Note', the function addNote is called to handle the new note creation.">
+      <option name="closed" value="true" />
+      <created>1707580665774</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1707580665774</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,7 +389,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor Markdown file and directory handling classes&#10;&#10;Renamed MarkdownFileHandler to MarkdownFileManager and Directory to DirectoryManager for clarity. On the markdown editor, implemented plugins including history, clipboard, and markdown syntax, and added functionality for saving changes to the markdown file. Integrated these changes to the sidebar for handling and saving to the correct file." />
     <MESSAGE value="Refactor Markdown file handling modules with clearer interfaces&#10;&#10;Introduced FileOperations interface to clearly define file-related functions. Separated Markdown file handling roles into two classes: TauriFileOperations implements the FileOperations and NoteManager handles notes-related actions. This modular approach simplifies the understanding of the file handling system." />
     <MESSAGE value="Refactor stores.ts and add specific plugins &#10;&#10;Refactored 'stores.ts' by creating an interface named 'EditorStore' and initializing new writable store 'editorStore'. Plus, added specific plugins' methods to 'index.ts' that will bridge the functionalities between the editor and the markdown files. This improves code readability, promotes interface-typed design, and provides explicit methods for the markdown editor." />
     <MESSAGE value="Refactor code and add new editor functionalities&#10;&#10;Refactored stores.ts by creating a new 'EditorStore' interface along with a 'editorStore' writable store. Also, new plugin methods were added to index.ts to improve the interaction between the markdown editor and the markdown files. This enhances code readability, encourages an interface-based design approach and augments the markdown editor's capabilities." />
@@ -409,6 +413,7 @@
     <MESSAGE value="Add fontFamily extension to markdown editor&#10;&#10;The code updates added the '@tiptap/extension-font-family' to the 'package.json' module and implemented fontFamily support to the markdown editor. Alongside, it also made a variety of menu selections available for fontFamily. This enhances user experience by providing additional typography options in the markdown editor" />
     <MESSAGE value="Integrate interactive toasts for file operations&#10;&#10;The update introduces the use of toasts for UI feedback during file operations including note creation, retrieval, update, removal, and fetching all notes. This interactive approach improves user experience by providing real-time feedback on application activities. The 'svelte-sonner' library was used to facilitate the implementation of these toasts." />
     <MESSAGE value="Refactor file operations and improve UI functionalities.&#10;&#10;The commit message updates multiple files to improve the application functionality and user interface. The main changes include refactoring how file operations are handled in the markdown editor and adding interactive toasts for real-time feedback during file operations. Further improvements include expanding language support in codeblock highlights and adjusting the editor store setting." />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Add new Dialog.svelte file for note creation &#10;&#10;This new file introduces a dialog to facilitate note creation. This includes a carousel feature for template selection and user input for note naming. Furthermore, upon clicking 'Create Note', the function addNote is called to handle the new note creation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new Dialog.svelte file for note creation &#10;&#10;This new file introduces a dialog to facilitate note creation. This includes a carousel feature for template selection and user input for note naming. Furthermore, upon clicking 'Create Note', the function addNote is called to handle the new note creation." />
   </component>
 </project>

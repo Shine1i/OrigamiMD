@@ -20,15 +20,18 @@
 			current = api.selectedScrollSnap() + 1;
 		});
 	}
+	let selected = 'Note';
+	function onChange(event) {
+		selected = event.currentTarget.value;
+	}
 </script>
 
 <Dialog.Root bind:open>
 	<Dialog.Content>
 		<Dialog.Header>
-			<Dialog.Title>Select Note Template</Dialog.Title>
+			<Dialog.Title>Select File Template</Dialog.Title>
 			<Dialog.Description>
-				Create your note here. You can choose from various templates to get started quickly. Don't
-				forget to click "Create Note".
+				Choose a Note or Kanban Board template, name your file, and click "Create Note".
 			</Dialog.Description>
 		</Dialog.Header>
 		<Carousel.Root
@@ -70,7 +73,72 @@
 			<Carousel.Previous />
 			<Carousel.Next />
 		</Carousel.Root>
-		<div class="mx-auto grid w-full max-w-sm items-center gap-1.5 pt-5">
+		<fieldset>
+			<div class="flex gap-2">
+				<!-- Active: "border-indigo-600 ring-2 ring-indigo-600", Not Active: "border-gray-300" -->
+				<label
+					class="relative block h-fit w-1/2 cursor-pointer rounded-lg border px-6 py-4 text-popover-foreground shadow-sm focus:outline-none sm:flex sm:justify-between"
+				>
+					<input
+						type="radio"
+						name="server-size"
+						value="Note"
+						class="sr-only"
+						checked={selected === 'Note'}
+						on:change={onChange}
+						aria-labelledby="server-size-0-label"
+						aria-describedby="server-size-0-description-0 server-size-0-description-1"
+					/>
+
+					<span class="flex items-center">
+						<span class="flex flex-col text-sm">
+							<span id="server-size-0-label" class="font-medium">Note</span>
+							<span id="server-size-0-description-0" class="text-gray-500">
+								<span class="block sm:inline">Simple Markdown Note</span>
+							</span>
+						</span>
+					</span>
+
+					<span
+						class={`pointer-events-none absolute -inset-px rounded-lg border-2 ${selected === 'Note' ? 'border-indigo-600' : 'border-transparent'}`}
+						aria-hidden="true"
+					></span>
+				</label>
+				<label
+					class="relative block h-fit w-1/2 cursor-pointer rounded-lg border px-6 py-4 shadow-sm focus:outline-none sm:flex sm:justify-between"
+				>
+					<input
+						type="radio"
+						name="server-size"
+						checked={selected === 'Board'}
+						on:change={onChange}
+						value="Board"
+						class="sr-only"
+						aria-labelledby="server-size-0-label"
+						aria-describedby="server-size-0-description-0 server-size-0-description-1"
+					/>
+					<span class="flex items-center">
+						<span class="flex flex-col text-sm">
+							<span id="server-size-0-label" class="font-medium">Kanban Board</span>
+							<span id="server-size-0-description-0" class="text-gray-500">
+								<span class="block sm:inline">Tasks progression system</span>
+							</span>
+						</span>
+					</span>
+
+					<!--
+						Active: "border", Not Active: "border-2"
+						Checked: "border-indigo-600", Not Checked: "border-transparent"
+					-->
+					<span
+						class={`pointer-events-none absolute -inset-px rounded-lg border-2  ${selected === 'Board' ? 'border-indigo-600' : 'border-transparent'}`}
+						aria-hidden="true"
+					></span>
+				</label>
+			</div>
+		</fieldset>
+
+		<div class="grid w-full items-center gap-1.5 pt-5">
 			<Label for="email">Note Name</Label>
 			<Input
 				bind:value={noteName}
