@@ -3,17 +3,59 @@
 	import * as Menubar from '$lib/components/ui/menubar';
 	import Sidebar from '$lib/components/Layout/sidebar/Sidebar.svelte';
 	import Titlebar from '$lib/components/Layout/Titlebar.svelte';
-
+	import * as Command from '$lib/components/ui/command';
 	import { Toaster } from '$lib/components/ui/sonner';
 	import { editorStore } from '$lib/stores';
+	import { onMount } from 'svelte';
+
+	import CommandMeny from '$lib/components/Layout/CommandMeny.svelte';
+	import { FileMinus, FilePlus, FileText, Heart, HeartFilled } from 'radix-icons-svelte';
 	let bookmarks = false;
 	let fullUrls = true;
 	// const profileRadioValue = 'benoit';
 	let show = false;
+	let open = false;
+	onMount(() => {
+		function handleKeydown(e: KeyboardEvent) {
+			if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+				console.log('open');
+				e.preventDefault();
+				open = !open;
+			}
+		}
+		document.addEventListener('keydown', handleKeydown);
+		return () => {
+			document.removeEventListener('keydown', handleKeydown);
+		};
+	});
 </script>
 
+<Command.Dialog bind:open>
+	<Command.Input placeholder="Type a command or search..." />
+	<Command.List>
+		<Command.Empty>No results found.</Command.Empty>
+		<Command.Group heading="Files">
+			<Command.Item>
+				<FilePlus class="mr-2 h-4 w-4" />
+				<span>Add New File...</span>
+				<Command.Shortcut>Ctrl+N</Command.Shortcut>
+			</Command.Item>
+			<Command.Item>
+				<FileMinus class="mr-2 h-4 w-4" />
+				<span>Delete Current Note...</span>
+				<Command.Shortcut>Ctrl+D</Command.Shortcut>
+			</Command.Item>
+			<Command.Item>
+				<Heart class="mr-2 h-4 w-4" />
+				<span>Favorite Current Note...</span>
+				<Command.Shortcut>Ctrl+D</Command.Shortcut>
+			</Command.Item>
+		</Command.Group>
+	</Command.List>
+</Command.Dialog>
 <Toaster />
 <Titlebar />
+
 <Menubar.Root class="fixed top-8 z-[60] w-full border-none ">
 	<Menubar.Menu>
 		<Menubar.Trigger>File</Menubar.Trigger>
