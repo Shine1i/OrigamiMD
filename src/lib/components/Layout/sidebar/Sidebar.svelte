@@ -117,6 +117,7 @@
 						</svg>
 						<span>Notes</span>
 					</li>
+					<!--FOUND THE CULPTIR NIGGAAAAAAAAAAA (NOTE) ASK CHAYCE IK HOW I CAN FIX BUT THERE IS PROBABLY EASIER WAY-->
 					{#each notes as note (note)}
 						<ContextMenu.Root>
 							<ContextMenu.Trigger class="z-[999] min-w-full">
@@ -154,6 +155,7 @@
 							</ContextMenu.Content>
 						</ContextMenu.Root>
 					{/each}
+
 					<li class="mt-auto flex w-full items-center justify-center text-center">
 						<button
 							class="group w-full text-sm font-semibold leading-5 text-gray-600 hover:bg-gray-500/20"

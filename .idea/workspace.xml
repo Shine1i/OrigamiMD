@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Add new Dialog.svelte file for note creation &#10;&#10;This new file introduces a dialog to facilitate note creation. This includes a carousel feature for template selection and user input for note naming. Furthermore, upon clicking 'Create Note', the function addNote is called to handle the new note creation.">
+    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Add editable mode and enhance file template dialog &#10;&#10;The code now brings new features to the application including: an editable mode toggle for the text editor, supplemented by new lock icons imported from 'radix-icons-svelte'. The file template dialog now provides a choice between 'Note' and 'Kanban Board'. It comes complete with radio buttons and enhanced UI elements, like additional labels and input elements.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/tauri.conf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Dialog.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Dialog.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/ui/sonner/sonner.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/ui/sonner/sonner.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -161,7 +159,8 @@
       <workItem from="1707574842239" duration="815000" />
       <workItem from="1707576800318" duration="60000" />
       <workItem from="1707576867261" duration="4441000" />
-      <workItem from="1707583071550" duration="2560000" />
+      <workItem from="1707583071550" duration="3304000" />
+      <workItem from="1707586422211" duration="423000" />
     </task>
     <task id="LOCAL-00001" summary="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included.">
       <option name="closed" value="true" />
@@ -371,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707580665774</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Add editable mode and enhance file template dialog &#10;&#10;The code now brings new features to the application including: an editable mode toggle for the text editor, supplemented by new lock icons imported from 'radix-icons-svelte'. The file template dialog now provides a choice between 'Note' and 'Kanban Board'. It comes complete with radio buttons and enhanced UI elements, like additional labels and input elements.">
+      <option name="closed" value="true" />
+      <created>1707585725979</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1707585725979</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,9 +396,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor Markdown file handling modules with clearer interfaces&#10;&#10;Introduced FileOperations interface to clearly define file-related functions. Separated Markdown file handling roles into two classes: TauriFileOperations implements the FileOperations and NoteManager handles notes-related actions. This modular approach simplifies the understanding of the file handling system." />
-    <MESSAGE value="Refactor stores.ts and add specific plugins &#10;&#10;Refactored 'stores.ts' by creating an interface named 'EditorStore' and initializing new writable store 'editorStore'. Plus, added specific plugins' methods to 'index.ts' that will bridge the functionalities between the editor and the markdown files. This improves code readability, promotes interface-typed design, and provides explicit methods for the markdown editor." />
-    <MESSAGE value="Refactor code and add new editor functionalities&#10;&#10;Refactored stores.ts by creating a new 'EditorStore' interface along with a 'editorStore' writable store. Also, new plugin methods were added to index.ts to improve the interaction between the markdown editor and the markdown files. This enhances code readability, encourages an interface-based design approach and augments the markdown editor's capabilities." />
     <MESSAGE value="Establish 'EditorStore' and expand markdown editor features&#10;&#10;Implemented an 'EditorStore' interface and a corresponding 'editorStore' writable store in stores.ts for an enhanced structural approach. Introduced new plugin methods in index.ts to strengthen the link between the markdown editor and markdown files, thereby increasing code readability and augmenting the markdown editor functionalities." />
     <MESSAGE value="Update README.md with project's new focus and instructions&#10;&#10;The README.md is updated to reflect the new focus on developing a WYSIWYG Markdown App using Svelte, Tauri, and Milkdown. It also includes more detailed setup instructions for potential contributors. The change shows a pivot in the project from a generic Svelte creation to a more specific application." />
     <MESSAGE value="Add note management functionality and update Sidebar.svelte structure&#10;&#10;Updated Sidebar.svelte to include methods to add and delete notes, import and contextualize the UI context menu, and restructure formatting for presentation and navigation. These changes enhance the usability and functionality of the notes feature in the application, enabling more user control and interaction." />
@@ -414,6 +418,9 @@
     <MESSAGE value="Integrate interactive toasts for file operations&#10;&#10;The update introduces the use of toasts for UI feedback during file operations including note creation, retrieval, update, removal, and fetching all notes. This interactive approach improves user experience by providing real-time feedback on application activities. The 'svelte-sonner' library was used to facilitate the implementation of these toasts." />
     <MESSAGE value="Refactor file operations and improve UI functionalities.&#10;&#10;The commit message updates multiple files to improve the application functionality and user interface. The main changes include refactoring how file operations are handled in the markdown editor and adding interactive toasts for real-time feedback during file operations. Further improvements include expanding language support in codeblock highlights and adjusting the editor store setting." />
     <MESSAGE value="Add new Dialog.svelte file for note creation &#10;&#10;This new file introduces a dialog to facilitate note creation. This includes a carousel feature for template selection and user input for note naming. Furthermore, upon clicking 'Create Note', the function addNote is called to handle the new note creation." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add new Dialog.svelte file for note creation &#10;&#10;This new file introduces a dialog to facilitate note creation. This includes a carousel feature for template selection and user input for note naming. Furthermore, upon clicking 'Create Note', the function addNote is called to handle the new note creation." />
+    <MESSAGE value="Update sonner.svelte and layout components, add Dialog.svelte file&#10;&#10;The sonner component's richColors property was changed to boolean. The layout.svelte component was heavily modified by adding the LockClosed, LockOpen2 icons, creating a breadcrumb navigation, and adding a toggle functionality for readonly property. A new Dialog.svelte file was introduced which includes a dialog for note or kanban" />
+    <MESSAGE value="board selection, additional labels, and input elements." />
+    <MESSAGE value="Add editable mode and enhance file template dialog &#10;&#10;The code now brings new features to the application including: an editable mode toggle for the text editor, supplemented by new lock icons imported from 'radix-icons-svelte'. The file template dialog now provides a choice between 'Note' and 'Kanban Board'. It comes complete with radio buttons and enhanced UI elements, like additional labels and input elements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add editable mode and enhance file template dialog &#10;&#10;The code now brings new features to the application including: an editable mode toggle for the text editor, supplemented by new lock icons imported from 'radix-icons-svelte'. The file template dialog now provides a choice between 'Note' and 'Kanban Board'. It comes complete with radio buttons and enhanced UI elements, like additional labels and input elements." />
   </component>
 </project>

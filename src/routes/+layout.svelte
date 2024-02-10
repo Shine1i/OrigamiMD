@@ -36,11 +36,6 @@
 			document.removeEventListener('keydown', handleKeydown);
 		};
 	});
-	let readonly = true;
-
-	function toggleEditable() {
-		readonly = !readonly;
-	}
 </script>
 
 <Command.Dialog bind:open>
