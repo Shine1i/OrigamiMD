@@ -14,6 +14,7 @@
 	let notes: string[] = [];
 	import * as Tabs from '$lib/components/ui/tabs';
 	import Toc from '$lib/components/Layout/sidebar/Toc.svelte';
+
 	onMount(async () => {
 		try {
 			await getNotes($fileHandlerStore);
@@ -71,7 +72,9 @@
 							<ContextMenu.Item
 								inset
 								class="cursor-pointer"
-								on:click={() => addNote($fileHandlerStore)}
+								on:click={() => {
+									addNote($fileHandlerStore);
+								}}
 							>
 								Add Note
 								<ContextMenu.Shortcut>⌘]</ContextMenu.Shortcut>

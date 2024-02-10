@@ -38,7 +38,7 @@ export const addNote = async (fileHandlerStore: NoteManager) => {
 	await fileHandlerStore.addNewNote(noteName, '');
 
 	editorStore.update((state) => {
-		state.notes = [...state.notes, noteName];
+		state.notes = [...state.notes, noteName + '.json'];
 		return state;
 	});
 };

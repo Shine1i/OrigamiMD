@@ -3,7 +3,8 @@
 	import * as Menubar from '$lib/components/ui/menubar';
 	import Sidebar from '$lib/components/Layout/sidebar/Sidebar.svelte';
 	import Titlebar from '$lib/components/Layout/Titlebar.svelte';
-	import { BubbleMenu, FloatingMenu } from 'svelte-tiptap';
+
+	import { Toaster } from '$lib/components/ui/sonner';
 	import { editorStore } from '$lib/stores';
 	let bookmarks = false;
 	let fullUrls = true;
@@ -11,6 +12,7 @@
 	let show = false;
 </script>
 
+<Toaster />
 <Titlebar />
 <Menubar.Root class="fixed top-8 z-[60] w-full border-none ">
 	<Menubar.Menu>

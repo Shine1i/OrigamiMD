@@ -65,7 +65,7 @@
 			autofocus: false,
 			onUpdate: ({ editor }) => {
 				const json = editor.getJSON();
-				if ($editorStore.currentNote != '')
+				if ($editorStore.currentNote != '' && (editor.getText() ?? '') != '')
 					updateNoteContent(json, $fileHandlerStore, $editorStore.currentNote);
 				console.log('Note updated successfully');
 
