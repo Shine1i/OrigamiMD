@@ -30,6 +30,7 @@
 	let tab: number = 0;
 	let open: boolean = false;
 	let selectedNote: string;
+
 	let sheet: boolean = false;
 </script>
 

@@ -8,7 +8,6 @@ import {
 	removeFile,
 	writeFile
 } from '@tauri-apps/api/fs';
-import { path } from '@tauri-apps/api';
 import type { JSONContent } from '@tiptap/core';
 import { toast } from 'svelte-sonner';
 
@@ -42,7 +41,7 @@ export class TauriFileOperations implements FileOperations {
 	}
 
 	async listDirectory(directory: string): Promise<FileEntry[]> {
-		return await readDir(directory, { dir: BaseDirectory.Document, recursive: true });
+		return await readDir(directory, { dir: BaseDirectory.Document, recursive: false });
 	}
 }
 
@@ -119,7 +118,7 @@ export class NoteManager {
 				description: `Note Name:  ${noteTitle}`
 			});
 		} else {
-			toast.error(`Something went wrong removing Note`, {
+			toast.error(`Something else if (file.path.endsWith('')) {went wrong removing Note`, {
 				description: `Note Name:  ${noteTitle}`
 			});
 			throw new Error('Note does not exist');
@@ -128,21 +127,19 @@ export class NoteManager {
 
 	async fetchAllNotes() {
 		const directoryContents = await this.fileOperations.listDirectory(this.notesDirectory);
+
 		await this.buildNoteList(directoryContents);
 		toast.success(`Successfully fetched All Notes `, {
 			description: `Total count: ${directoryContents.length}`
 		});
-
+		console.log(this.collectedNotes);
 		return this.collectedNotes;
 	}
 
 	private async buildNoteList(dirContents: FileEntry[]) {
+		this.collectedNotes = [];
 		for (const file of dirContents) {
-			if (file.children) {
-				await this.buildNoteList(file.children);
-			} else if (file.path.endsWith('')) {
-				this.collectedNotes.push(await path.basename(file.path));
-			}
+			this.collectedNotes.push(file.name!);
 		}
 	}
 }

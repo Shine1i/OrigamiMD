@@ -1,15 +1,16 @@
 // Import relevant dependencies
 import { editorStore } from '$lib/stores';
 import { NoteManager } from '$lib';
+import { get } from 'svelte/store';
 
 export const getNotes = async (fileHandlerStore: NoteManager) => {
 	if (fileHandlerStore) {
 		const notes = await fileHandlerStore.fetchAllNotes();
 
-		editorStore.update((state) => {
-			state.notes = notes;
-			return state;
-		});
+		const store = get(editorStore);
+		store.notes = notes;
+
+		editorStore.set(store);
 	}
 };
 

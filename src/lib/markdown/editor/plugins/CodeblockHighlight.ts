@@ -11,6 +11,7 @@ import ruby from 'highlight.js/lib/languages/ruby';
 import swift from 'highlight.js/lib/languages/swift';
 import scala from 'highlight.js/lib/languages/scala';
 import html from 'highlight.js/lib/languages/xml';
+import csharp from 'highlight.js/lib/languages/csharp';
 import { common, createLowlight } from 'lowlight';
 
 export const lowlight = createLowlight(common);
@@ -28,3 +29,4 @@ lowlight.register('rust', rust);
 lowlight.register('ruby', ruby);
 lowlight.register('swift', swift);
 lowlight.register('scala', scala);
+lowlight.register('csharp', csharp);

@@ -83,7 +83,7 @@
 
 	function updateEditorContent(state) {
 		if (state.currentNote !== previousNote && state.noteContent.trim() !== '') {
-			$editor.commands.setContent(JSON.parse(state.noteContent), true);
+			$editor.commands?.setContent(JSON.parse(state.noteContent) ?? {}, true);
 
 			previousNote = state.currentNote;
 		}

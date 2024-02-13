@@ -4,10 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Add editable mode and enhance file template dialog &#10;&#10;The code now brings new features to the application including: an editable mode toggle for the text editor, supplemented by new lock icons imported from 'radix-icons-svelte'. The file template dialog now provides a choice between 'Note' and 'Kanban Board'. It comes complete with radio buttons and enhanced UI elements, like additional labels and input elements.">
+    <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="just switching to laptop gotta have latest code :)">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/OrigamiMD.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/OrigamiMD.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/tauri.conf.json" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/tauri.conf.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Sidebar.svelte" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/+layout.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+layout.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/sidebarController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/sidebarController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/markdown/editor/plugins/CodeblockHighlight.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/markdown/editor/plugins/CodeblockHighlight.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/markdown/utils/fileHandler.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/markdown/utils/fileHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +80,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.11.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.11.17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/wasim/WebstormProjects/OrigamiMD&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/wasim/Documents/app&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -81,7 +88,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;npm.tauri.executor&quot;: &quot;Run&quot;,
     &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/wasim/WebstormProjects/OrigamiMD/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/home/wasim/WebstormProjects/OrigamiMD/node_modules/typescript/lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -160,7 +167,12 @@
       <workItem from="1707576800318" duration="60000" />
       <workItem from="1707576867261" duration="4441000" />
       <workItem from="1707583071550" duration="3304000" />
-      <workItem from="1707586422211" duration="423000" />
+      <workItem from="1707586422211" duration="1292000" />
+      <workItem from="1707681393108" duration="169000" />
+      <workItem from="1707681567196" duration="109000" />
+      <workItem from="1707686330271" duration="189000" />
+      <workItem from="1707690091674" duration="76000" />
+      <workItem from="1707857920030" duration="1733000" />
     </task>
     <task id="LOCAL-00001" summary="Add new layout and configuration files&#10;&#10;Multiple layout, configuration, and routing files were added to extend and scale the project. Along with adding interface components and cargo locks, these files provide additional functionalities to the product such as creating a responsive layout, enabling server-side rendering and pre-rendering, syntax highlighting for TypeScript, and CSharp. Essential gitignore, eslintignore, eslintrc.cjs, and prettier configurations were also included.">
       <option name="closed" value="true" />
@@ -378,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707585725979</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="just switching to laptop gotta have latest code :)">
+      <option name="closed" value="true" />
+      <created>1707587162007</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1707587162007</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +416,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Establish 'EditorStore' and expand markdown editor features&#10;&#10;Implemented an 'EditorStore' interface and a corresponding 'editorStore' writable store in stores.ts for an enhanced structural approach. Introduced new plugin methods in index.ts to strengthen the link between the markdown editor and markdown files, thereby increasing code readability and augmenting the markdown editor functionalities." />
     <MESSAGE value="Update README.md with project's new focus and instructions&#10;&#10;The README.md is updated to reflect the new focus on developing a WYSIWYG Markdown App using Svelte, Tauri, and Milkdown. It also includes more detailed setup instructions for potential contributors. The change shows a pivot in the project from a generic Svelte creation to a more specific application." />
     <MESSAGE value="Add note management functionality and update Sidebar.svelte structure&#10;&#10;Updated Sidebar.svelte to include methods to add and delete notes, import and contextualize the UI context menu, and restructure formatting for presentation and navigation. These changes enhance the usability and functionality of the notes feature in the application, enabling more user control and interaction." />
     <MESSAGE value="Implement note addition and deletion features in Sidebar.svelte&#10;&#10;The code now includes functions to add and delete notes in Sidebar.svelte. This was achieved by importing and contextualizing the UI context menu. Additionally, the structure and format of Sidebar.svelte was updated to improve navigation and presentation of the notes feature resulting in an enhanced user experience. Furthermore, minor adjustments were made in MarkdownEditor.svelte to correctly update the editor with new markdown content." />
@@ -421,6 +440,7 @@
     <MESSAGE value="Update sonner.svelte and layout components, add Dialog.svelte file&#10;&#10;The sonner component's richColors property was changed to boolean. The layout.svelte component was heavily modified by adding the LockClosed, LockOpen2 icons, creating a breadcrumb navigation, and adding a toggle functionality for readonly property. A new Dialog.svelte file was introduced which includes a dialog for note or kanban" />
     <MESSAGE value="board selection, additional labels, and input elements." />
     <MESSAGE value="Add editable mode and enhance file template dialog &#10;&#10;The code now brings new features to the application including: an editable mode toggle for the text editor, supplemented by new lock icons imported from 'radix-icons-svelte'. The file template dialog now provides a choice between 'Note' and 'Kanban Board'. It comes complete with radio buttons and enhanced UI elements, like additional labels and input elements." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add editable mode and enhance file template dialog &#10;&#10;The code now brings new features to the application including: an editable mode toggle for the text editor, supplemented by new lock icons imported from 'radix-icons-svelte'. The file template dialog now provides a choice between 'Note' and 'Kanban Board'. It comes complete with radio buttons and enhanced UI elements, like additional labels and input elements." />
+    <MESSAGE value="just switching to laptop gotta have latest code :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="just switching to laptop gotta have latest code :)" />
   </component>
 </project>
