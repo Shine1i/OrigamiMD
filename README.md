@@ -35,9 +35,13 @@ Currently brewing in the code roadmap🧙‍♂️:
 To get started with Markdown Note Taking App on your local machine:
 
 1. Clone this repository to your local machine.
-2. Navigate to the cloned folder, run `bun install` to set things up.
-3. Fire up the application using `bun run tauri dev`.
+2. Navigate to the cloned folder.
+3. Run `bun install` to set things up.
+   - If you encounter troubles with `@tiptap-pro/extension-table-of-contents`, run `npm install @tiptap-pro/extension-table-of-contents` instead.
+4. Fire up the application using `bun run tauri dev`.
+
 > [Make sure to have the necessary dependencies for Tauri installed on your machine.](https://tauri.app/v1/guides/getting-started/prerequisites)
+
 ## Usage
 The application is still in its early stages of development. 
 Therefore to use it, you need to build and run it on your local machine.
