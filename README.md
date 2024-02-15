@@ -23,12 +23,12 @@ The app so far can do:
 - An easy-to-navigate homepage
 
 ## Roadmap
-Currently brewing in the code cauldron🧙‍♂️:
+Currently brewing in the code roadmap🧙‍♂️:
 - Integrating more AI functions
 - Kanban boards for organization
-- Multiple themes because more is merrier
+- Multiple themes because why not
 - User settings and plugins for customization
-- Fixing bugs (those pesky creatures!)
+- Fixing bugs 
 
 ## Installation
 
