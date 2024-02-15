@@ -2,7 +2,7 @@
   <img src="./static/banner.png" alt="Markdown Note Taking App Banner" width="600">
 </p>
 
-<h1 align="center">Markdown Note Taking App</h1>
+<h1 align="center"> WSIWYG Markdown Note Taking App</h1>
 
 ## Project Description
 
