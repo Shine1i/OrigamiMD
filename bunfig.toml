@@ -1,0 +1,5 @@
+[install]
+registry = "https://registry.npmjs.org"
+
+[install.scopes]
+"@tiptap-pro" = { token = "F7MdBOmlbgHfdbJBW31LI+3HxF9xSD/23Fv86/YRg2ebiDNjm5d6RTVREijG72fZ", url = "https://registry.tiptap.dev/" }
