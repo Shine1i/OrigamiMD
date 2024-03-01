@@ -65,7 +65,10 @@
 				if ($editorStore.currentNote != '' && (editor.getText() ?? '') != '')
 					updateNoteContent(json, $fileHandlerStore, $editorStore.currentNote);
 				console.log('Note updated successfully');
-
+				// const noteJSON = {
+				// 	noteContent: noteContentJSON,
+				// 	tags: tags
+				// };
 				scrollToSelection(editor);
 			},
 			onCreate: ({ editor }) => {
@@ -98,7 +101,7 @@
 <EditorContent editor={$editor} />
 
 {#if $editor}
-	<BubbleMenu class="z-[100000] min-w-[625px]" editor={$editor}>
+	<BubbleMenu class="!z-[100000] min-w-[625px]" editor={$editor}>
 		<ToggleMenu />
 	</BubbleMenu>
 {/if}

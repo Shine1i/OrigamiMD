@@ -45,7 +45,7 @@
 	<ToggleGroup.Root
 		size="sm"
 		type="multiple"
-		class="divide-x rounded-md border bg-dracula-background p-0.5"
+		class="z-[9999] divide-x rounded-md border bg-dracula-background p-0.5"
 	>
 		<!--		tiptap-extension-font-size-->
 		<div class="flex gap-2 px-1">
