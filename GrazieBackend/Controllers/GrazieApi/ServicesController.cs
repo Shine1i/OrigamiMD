@@ -9,6 +9,6 @@ public class ServicesController : ControllerBase
     [HttpPost("grazie")]
     public ActionResult PromptGrazie(BackendRequest request)
     {
-        
+        return new NotFoundResult();
     }
 }
