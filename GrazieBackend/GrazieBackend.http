@@ -1,0 +1,6 @@
+@GrazieBackend_HostAddress = http://localhost:5148
+
+GET {{GrazieBackend_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
