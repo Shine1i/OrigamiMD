@@ -37,5 +37,6 @@ vite.config.ts.timestamp-*
 /.idea/sonarlint/securityhotspotstore/f/e/fece3a33438b8325ae0a5fd15a28eb69db062414
 /.idea/sonarlint/issuestore/index.pb
 /.idea/sonarlint/securityhotspotstore/index.pb
-OrigamiMdGrazieBackend/bin/
-OrigamiMdGrazieBackend/obj/
+GrazieBackend/GrazieBackend/bin/
+GrazieBackend/GrazieBackend/obj/
+GrazieBackend/.idea/
