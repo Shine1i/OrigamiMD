@@ -18,7 +18,7 @@ builder.Services.AddControllers()
 
 builder.Services.AddScoped<GrazieAuthKeyProvider>();
 builder.Services.AddScoped<GrazieService>();
-builder.Services.AddSingleton<GrazieRequestTypeToGrazieMessageStrategy>();
+builder.Services.AddSingleton<GrazieBackendRequestToGrazieMessagesStrategy>();
 
 var app = builder.Build();
 
