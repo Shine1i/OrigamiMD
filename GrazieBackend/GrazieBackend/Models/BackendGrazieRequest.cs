@@ -10,5 +10,5 @@ public class BackendGrazieRequest
     public BackendGrazieRequestType ReqType { get; set; }
     [Required]
     [JsonPropertyName("prompt")]
-    public List<string> Prompt { get; set; }
+    public string Prompt { get; set; }
 }
