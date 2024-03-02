@@ -9,7 +9,7 @@ namespace GrazieBackend.Controllers;
 public class ServicesController(GrazieService grazieService) : ControllerBase
 {
     [HttpPost("grazie")]
-    public async Task<ActionResult> PromptGrazie(BackendRequest request)
+    public async Task<ActionResult> PromptGrazie(BackendGrazieRequest request)
     {
         throw new NotImplementedException();
     }

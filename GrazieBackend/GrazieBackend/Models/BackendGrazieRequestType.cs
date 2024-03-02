@@ -1,6 +1,6 @@
 ﻿namespace GrazieBackend.Models;
 
-public enum BackendRequestType
+public enum BackendGrazieRequestType
 {
     AdjustTone,
     Complete,
