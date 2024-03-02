@@ -10,6 +10,6 @@ public class ManagementController : ControllerBase
     [HttpGet("shutdown")]
     public void ShutdownBackend()
     {
-        
+        throw new NotImplementedException();
     }
 }
