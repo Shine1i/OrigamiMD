@@ -1,4 +1,4 @@
-﻿namespace GrazieBackend.Controllers.GrazieApi;
+﻿/*namespace GrazieBackend.Controllers.GrazieApi;
 
 public class ConfigurationCache : IConfigurationCache
 {
@@ -13,4 +13,4 @@ public class ConfigurationCache : IConfigurationCache
 public interface IConfigurationCache
 {
     Response
-}
+}*/

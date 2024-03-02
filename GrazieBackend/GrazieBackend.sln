@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrazieBackend", "GrazieBackend\GrazieBackend.csproj", "{B4E4424C-2487-40C6-943D-C3ECAF672E06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{D1228C2E-F6A6-4D70-ABE8-34B302EC7096}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{B4E4424C-2487-40C6-943D-C3ECAF672E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4E4424C-2487-40C6-943D-C3ECAF672E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4E4424C-2487-40C6-943D-C3ECAF672E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1228C2E-F6A6-4D70-ABE8-34B302EC7096}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1228C2E-F6A6-4D70-ABE8-34B302EC7096}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1228C2E-F6A6-4D70-ABE8-34B302EC7096}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1228C2E-F6A6-4D70-ABE8-34B302EC7096}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

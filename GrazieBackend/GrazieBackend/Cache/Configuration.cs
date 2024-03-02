@@ -1,4 +1,4 @@
-﻿namespace GrazieBackend.Controllers.GrazieApi;
+﻿/*namespace GrazieBackend.Controllers.GrazieApi;
 
 public class Configuration
 {
@@ -8,4 +8,6 @@ public class Configuration
         public string content { get; set; }
 //TODO My Rider Broke
     }
-}
+}*/
+
+// Commented to test, sorry
