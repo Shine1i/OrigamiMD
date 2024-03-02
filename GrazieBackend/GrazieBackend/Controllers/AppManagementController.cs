@@ -9,6 +9,7 @@ public class AppManagementController : ControllerBase
     [HttpGet("shutdown")]
     public void ShutdownBackend()
     {
+        // TODO: implement
         throw new NotImplementedException();
     }
 }

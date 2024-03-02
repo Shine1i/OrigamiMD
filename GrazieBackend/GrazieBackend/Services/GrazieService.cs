@@ -17,7 +17,7 @@ public class GrazieService(GrazieAuthKeyProvider keyProvider, HttpClient httpCli
             {
                 messages
             },
-            prompt = "unknown",
+            prompt = "",
             profile = "openai-gpt-4"
         });
 

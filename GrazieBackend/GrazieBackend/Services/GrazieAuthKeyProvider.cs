@@ -14,7 +14,7 @@ public class GrazieAuthKeyProvider : IAuthKeyProvider
 
         if (key == null)
             throw new ApplicationException
-                ($"No Grazie key. please set one as env variable with {string.Join("/", EnvVars)}");
+                ($"No Grazie key. please set one as environment variable with {string.Join("/", EnvVars)}");
         
         return key;
     });

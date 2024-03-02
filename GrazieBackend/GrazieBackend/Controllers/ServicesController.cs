@@ -8,6 +8,7 @@ namespace GrazieBackend.Controllers;
 [ApiController]
 public class ServicesController(GrazieService grazieService, GrazieRequestTypeToGrazieMessageStrategy converterStrategy) : ControllerBase
 {
+    // TODO: accept a list of BackendGrazieRequests with the first one being the sys msg and the rest being additional messages for configuration
     [HttpPost("grazie")]
     public async Task<ActionResult> PromptGrazie(BackendGrazieRequest request)
     {

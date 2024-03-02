@@ -2,6 +2,7 @@
 
 namespace GrazieBackend.Models;
 
+// TODO: Refactor into GrazieHistoricMessage possibly?
 public record GrazieMessage
 {
     public const string SystemMessage = "system_message";
