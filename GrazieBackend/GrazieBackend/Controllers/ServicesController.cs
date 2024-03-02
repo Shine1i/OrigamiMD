@@ -17,7 +17,6 @@ public class ServicesController(GrazieService grazieService, GrazieRequestTypeTo
         var userMsg = new GrazieMessage(GrazieMessage.UserMessage, request.Prompt);
         var messages = new[] { sysMsg, userMsg };
         
-        // TODO: parse chunked HTTP data
         var response = await grazieService.PromptAi(messages);
 
         var result = new ContentResult
