@@ -11,4 +11,10 @@ public record GrazieMessage
     public string Type { get; }
     [JsonPropertyName("content")]
     public string Content { get; }
+
+    public GrazieMessage(string type, string content)
+    {
+        Type = type;
+        Content = content;
+    }
 }
