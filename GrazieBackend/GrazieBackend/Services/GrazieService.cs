@@ -8,8 +8,10 @@ public class GrazieService(GrazieAuthKeyProvider keyProvider, HttpClient httpCli
     
     public async Task<string> PromptAi(IList<GrazieMessage> messages)
     {
-        var key = keyProvider.GetKey();
-        var content = JsonContent.Create(new
+
+        var req = new HttpRequestMessage(HttpMethod.Post, $"{DnsZone}/user/v5/llm/chat/stream/v6");
+        req.Headers.Add("grazie-authenticate-jwt", keyProvider.GetKey());
+        req.Content = JsonContent.Create(new
         {
             chat = new
             {
@@ -18,10 +20,6 @@ public class GrazieService(GrazieAuthKeyProvider keyProvider, HttpClient httpCli
             prompt = "unknown",
             profile = "openai-gpt-4"
         });
-
-        var req = new HttpRequestMessage(HttpMethod.Post, $"{DnsZone}/user/v5/llm/chat/stream/v6");
-        req.Headers.Add("grazie-authenticate-jwt", key);
-        req.Content = content;
 
         var result = await httpClient.SendAsync(req);
         return await result.Content.ReadAsStringAsync();
