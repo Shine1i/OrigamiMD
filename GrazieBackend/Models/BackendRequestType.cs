@@ -5,7 +5,7 @@ public enum BackendRequestType
     AdjustTone,
     Complete,
     DeEmojify,
-    Extnd,
+    Extend,
     FixGrammar,
     Prompt,
     Rephrase,

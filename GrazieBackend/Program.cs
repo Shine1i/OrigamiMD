@@ -8,7 +8,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<GrazieAuthKeyProvider>();
-builder.Services.AddScoped<IAiService, GrazieService>();
+builder.Services.AddScoped<GrazieService>();
 
 var app = builder.Build();
 

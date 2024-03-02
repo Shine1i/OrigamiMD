@@ -2,24 +2,15 @@
 
 namespace GrazieBackend.Services;
 
-public class GrazieAuthKeyProvider
+public class GrazieAuthKeyProvider : IAuthKeyProvider
 {
-    private Lazy<string> _key;
-
-    public GrazieAuthKeyProvider()
+    private readonly Lazy<string> _key = new(() =>
     {
-        RefreshKeyFromSource();
-    }
-
-    [MethodImpl(MethodImplOptions.Synchronized)]
-    public void RefreshKeyFromSource()
-    {
-        _key = new Lazy<string>(() =>
-        {
-            // TODO: make work
-            return "placeholder";
-        });
-    }
+        // TODO: safer implementation
+        var key = Environment.GetEnvironmentVariable("Grazie-Auth-Application-JWT")
+            ?? Environment.GetEnvironmentVariable("GRAZIE_JWT_TOKEN");
+        return key ?? throw new ApplicationException("No grazie key");
+    });
 
     public string GetKey() => _key.Value;
 }
