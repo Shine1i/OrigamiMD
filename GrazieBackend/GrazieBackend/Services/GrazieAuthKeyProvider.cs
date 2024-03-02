@@ -4,12 +4,19 @@ namespace GrazieBackend.Services;
 
 public class GrazieAuthKeyProvider : IAuthKeyProvider
 {
+    private static readonly string[] EnvVars = ["Grazie-Auth-Application-JWT", "GRAZIE_JWT_TOKEN"];
+    
     private readonly Lazy<string> _key = new(() =>
     {
         // TODO: safer implementation
-        var key = Environment.GetEnvironmentVariable("Grazie-Auth-Application-JWT")
-            ?? Environment.GetEnvironmentVariable("GRAZIE_JWT_TOKEN");
-        return key ?? throw new ApplicationException("No grazie key");
+        var key = EnvVars.Select(Environment.GetEnvironmentVariable)
+            .FirstOrDefault(key => key != null);
+
+        if (key == null)
+            throw new ApplicationException
+                ($"No Grazie key. please set one as env variable with {string.Join("/", EnvVars)}");
+        
+        return key;
     });
 
     public string GetKey() => _key.Value;
