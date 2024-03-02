@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using GrazieBackend.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    // For displaying enums as strings in swagger
+    .AddJsonOptions(options => options
+        .JsonSerializerOptions
+        .Converters
+        .Add(new JsonStringEnumConverter()));
 
 builder.Services.AddScoped<GrazieAuthKeyProvider>();
 builder.Services.AddScoped<GrazieService>();

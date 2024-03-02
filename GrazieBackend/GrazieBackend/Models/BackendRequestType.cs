@@ -4,6 +4,7 @@ public enum BackendRequestType
 {
     AdjustTone,
     Complete,
+    Emojify,
     DeEmojify,
     Extend,
     FixGrammar,
