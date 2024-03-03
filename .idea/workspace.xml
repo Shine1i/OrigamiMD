@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="494aa2d6-c637-46ea-ab91-6dd171faf79c" name="Changes" comment="Add new bunfig.toml with install scope configuration&#10;&#10;This commit introduces a new configuration file, bunfig.toml, that specifies registry details for package installation via npm. A specific scope for &quot;@tiptap-pro&quot; is added with its token and URL, which allows specific handling for this package during the install process.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.pcss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.pcss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Dialog.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/components/Layout/sidebar/Dialog.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GrazieBackend/GrazieBackend/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GrazieBackend/GrazieBackend/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src-tauri/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/src-tauri/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/markdown/editor/ToggleMenu.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/markdown/editor/ToggleMenu.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/(editor)/editor/+page.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/(editor)/editor/+page.svelte" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +37,11 @@
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -69,27 +76,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.11.0&quot;,
-    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.11.17&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/wasim/Documents/app&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.tauri.executor&quot;: &quot;Run&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/wasim/WebstormProjects/OrigamiMD/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/wasim/WebstormProjects/OrigamiMD/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "grazie-backend",
+    "javascript.nodejs.core.library.configured.version": "20.11.0",
+    "javascript.nodejs.core.library.typings.version": "20.11.17",
+    "last_opened_file_path": "/home/wasim/Documents/app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.tauri.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\wasim\\WebstormProjects\\OrigamiMD\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\wasim\\WebstormProjects\\OrigamiMD\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/routes/(editor)/editor" />

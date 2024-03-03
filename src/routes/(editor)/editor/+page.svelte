@@ -98,7 +98,7 @@
 <EditorContent editor={$editor} />
 
 {#if $editor}
-	<BubbleMenu class="z-[100000] min-w-[625px]" editor={$editor}>
+	<BubbleMenu class="z-[100000] min-w-[725px]" editor={$editor}>
 		<ToggleMenu />
 	</BubbleMenu>
 {/if}

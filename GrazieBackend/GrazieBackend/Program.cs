@@ -1,20 +1,30 @@
 using System.Text.Json.Serialization;
 using GrazieBackend.Services;
+using Microsoft.AspNetCore.Cors.Infrastructure; // Import for CORS configuration
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 
 builder.Services.AddControllers()
-    // For displaying enums as strings in swagger
     .AddJsonOptions(options => options
         .JsonSerializerOptions
         .Converters
         .Add(new JsonStringEnumConverter()));
+
+// Add CORS services and configure the default policy to allow any origin
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.AllowAnyOrigin() // Allows requests from any origin
+            .AllowAnyMethod() // Allows all HTTP methods
+            .AllowAnyHeader(); // Allows all headers
+    });
+});
 
 builder.Services.AddScoped<GrazieAuthKeyProvider>();
 builder.Services.AddScoped<GrazieService>();
@@ -30,6 +40,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Apply CORS policy globally
+app.UseCors();
 
 app.MapControllers();
 

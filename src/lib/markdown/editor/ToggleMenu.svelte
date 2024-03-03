@@ -9,6 +9,10 @@
 		Strikethrough,
 		Underline as UnderlineIcon
 	} from 'radix-icons-svelte';
+	import * as Popover from '$lib/components/ui/popover';
+	import { Label } from '$lib/components/ui/label';
+	import { Button } from '$lib/components/ui/button';
+	import { Input } from '$lib/components/ui/input';
 	import * as ToggleGroup from '$lib/components/ui/toggle-group';
 	import * as Select from '$lib/components/ui/select';
 
@@ -39,13 +43,63 @@
 		if (!$editorStore.editor) return;
 		$editorStore.editor.commands.setColor(color);
 	}
+	async function rephraseSelectedText() {
+		if (!$editorStore.editor) return;
+
+		const { from, to } = $editorStore.editor.state.selection;
+		// Ensure there's a selection to replace
+		if (from === to) return;
+
+		// Extract the selected text
+		const selectedText = $editorStore.editor.state.doc.textBetween(from, to);
+		console.log(selectedText);
+
+		try {
+			// Send the selected text to your local server for rephrasing
+			const rephrasedText = await fetchRequestToGrazie(selectedText);
+			console.log(rephrasedText);
+			// Replace the selected text with the rephrased text from your server
+			$editorStore.editor
+				.chain()
+				.command(({ tr }) => {
+					tr.replaceWith(from, to, $editorStore.editor.schema.text(rephrasedText));
+					return true;
+				})
+				.run();
+		} catch (error) {
+			console.error('Error rephrasing text:', error);
+		}
+	}
+
+	async function fetchRequestToGrazie(selectedText) {
+		const response = await fetch('http://localhost:5148/grazie-backend/Services/grazie', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				requestType: 'AdjustTone',
+				sysCfgMsgs: ['string'], // Adjust according to your requirements
+				prompt: selectedText
+			})
+		});
+
+		if (!response.ok) {
+			throw new Error(`Error: ${response.statusText}`);
+		}
+
+		const data = await response.text();
+		console.log(data);
+		// Assuming the API returns the rephrased text in a specific field, adjust the following line accordingly
+		return data; // Adjust this to match the actual response structure
+	}
 </script>
 
 {#if $editorStore.editor}
 	<ToggleGroup.Root
 		size="sm"
 		type="multiple"
-		class="divide-x rounded-md border bg-dracula-background p-0.5"
+		class="flex divide-x rounded-md border bg-dracula-background p-0.5"
 	>
 		<!--		tiptap-extension-font-size-->
 		<div class="flex gap-2 px-1">
@@ -200,5 +254,54 @@
 					/>
 				</label>
 			</Toggle>
-		</div></ToggleGroup.Root
-	>{/if}
+		</div>
+
+		<Popover.Root>
+			<Popover.Trigger asChild let:builder>
+				<Button builders={[builder]} variant="outline" class="flex items-center gap-2">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="h-6 w-6"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
+						/>
+					</svg>
+					AI Assistant
+				</Button>
+			</Popover.Trigger>
+			<Popover.Content class="w-80">
+				<Button
+					on:click={() => {
+						rephraseSelectedText();
+					}}
+					variant="outline"
+					class="flex items-center gap-2"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke-width="1.5"
+						stroke="currentColor"
+						class="h-6 w-6"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
+						/>
+					</svg>
+
+					Rephrase
+				</Button>
+			</Popover.Content>
+		</Popover.Root>
+	</ToggleGroup.Root>
+{/if}
